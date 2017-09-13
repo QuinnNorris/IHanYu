@@ -1,0 +1,766 @@
+html,body{height:100%;width:100%;margin:0;padding:0;font-size:18px;font-family: 微软雅黑;}
+.main{height: 100%;width:100%;}
+
+
+/*网页顶端的导航栏布局（非透明）*/
+.head{
+    z-index: 100;
+    position: fixed;
+    display: flex;
+    display: -webkit-flex;
+    width: 100%;
+    height: 5em;
+    flex-direction: row;
+    -moz-flex-direction: row;
+    -webkit-flex-direction: row;
+    justify-content: space-between;
+    -moz-justify-content: space-between;
+    -webkit-justify-content: space-between;
+    background: white;
+    color:hsl(0,5%,50%);
+    box-shadow: 0 .15em .1em hsla(0,10%,80%,0.7);
+}
+.image{
+    margin:auto 0 auto 45px;
+    display: block;
+    width: 5em;
+    height: 5em;
+    background: url(../images/ihanyulogo1.png) no-repeat;
+    background-size: 100% 100%;
+}
+.items{
+    margin: 0 0 0 12vw;
+    width: 26em;
+    height: 100%;
+    line-height: 5em;
+}
+.item{
+    display: inline-block;
+    line-height: 1em;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.item:hover{ color:hsl(0,5%,20%); }
+.item:nth-child(1){
+    margin-right: 3em;
+}
+.item:nth-child(2){
+    margin-right: 1em;
+}
+.login-regist{
+    width: 13em;
+    line-height: 5em;
+}
+.login-regist-item{
+    margin-right: 1em;
+    padding:0.1em 1.2em;
+    display: inline-block;
+    line-height: 1.4em;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    border-radius: .4em;
+    font-size: 14px;
+}
+.login-regist-item:nth-child(1){
+    border:.05em solid hsl(0,5%,30%);
+    color: hsl(0,5%,30%);
+}
+.login-regist-item:nth-child(1):hover{
+    border:.05em solid hsl(0,90%,65%);
+    color: hsl(0,90%,65%);
+}
+.login-regist-item:nth-child(2){
+    color: white;
+    border:.05em solid hsl(0,90%,65%);
+    background: hsl(0,90%,65%);
+}
+.login-regist-item:nth-child(2):hover{
+    border:.05em solid hsl(0,80%,70%);
+    background: hsl(0,80%,70%);
+}
+.user{
+    font-size: 25px;
+    width: 7em;
+    display:none;
+}
+.user_head{
+    width: 1em;
+    height: 1em;
+    border-radius: 50% 50%;
+    vertical-align: middle;
+    border:none;
+    outline: none;
+    display: inline-block;
+    overflow: hidden;
+    cursor: pointer;
+}
+.user_name{
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    overflow: hidden;
+    max-width: 70%;
+    white-space: nowrap;
+}
+.user_item{
+    font-size: 18px;
+    line-height: 3em;
+    position: relative;
+    top:-1em;
+    background: white;
+    width: 10em;
+    box-shadow: 0 .1em .1em .1em hsla(0,10%,80%,0.7);
+    cursor: pointer;
+    display: none;
+}
+.user_item_transparent{
+    font-size: 18px;
+    line-height: 3em;
+    position: relative;
+    background: hsla(0,0%,5%,.4);
+    width: 10em;
+    color: white;
+    margin-bottom: .1em;
+    cursor: pointer;
+    display: none;
+}
+/*网页顶端的导航栏布局（透明）*/
+.head-transparent{
+    position: fixed;
+    display: flex;
+    display: -webkit-flex;
+    width: 100%;
+    height: 5em;
+    flex-direction: row;
+    -moz-flex-direction: row;
+    -webkit-flex-direction: row;
+    justify-content: space-between;
+    -moz-justify-content: space-between;
+    -webkit-justify-content: space-between;
+    background: hsla(0,0%,5%,.4);
+    color: white;
+}
+.item-transparent{
+    display: inline-block;
+    line-height: 1em;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.item-transparent:nth-child(1){
+    margin-right: 3em;
+}
+.item-transparent:nth-child(2){
+    margin-right: 1em;
+}
+.login-regist-item-transparent{
+    margin-right: 1em;
+    padding:0.1em 1.2em;
+    display: inline-block;
+    line-height: 1.4em;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    border-radius: .4em;
+    font-size: 14px;
+}
+.login-regist-item-transparent:nth-child(1){
+    border:.05em solid white;
+    color: white;
+}
+.login-regist-item-transparent:nth-child(1):hover{
+    border:.05em solid hsl(0,90%,65%);
+    color: hsl(0,90%,65%);
+}
+.login-regist-item-transparent:nth-child(2){
+    color: white;
+    border:.05em solid hsl(0,90%,65%);
+    background: hsl(0,90%,65%);
+}
+.login-regist-item-transparent:nth-child(2):hover{
+    border:.05em solid hsl(0,80%,70%);
+    background: hsl(0,80%,70%);
+}
+
+/* 第一屏幕（首页展示效果）的内容*/
+.page1{
+    display: block;
+    width:100%;
+    height: 100vh;
+    background: url(../images/homePage.jpg) no-repeat;
+    background-size: 100% 100%;
+    padding: .01em 0;
+    color: white;
+}
+.page1-head1{
+    margin:30vh 0 0 0;
+    text-align: center;
+    font-size:40px;
+    font-weight: lighter;
+}
+.page1-head2{
+    margin:5vh 0 0 0;
+    text-align: center;
+    font-size:30px;
+}
+.page1-buttons{
+    margin: 15vh auto 0;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    -moz-flex-direction: row;
+    -webkit-flex-direction: row;
+    justify-content:space-between;
+    -moz-justify-content:space-between;
+    -webkit-justify-content:space-between;
+    width: 28vw;
+    font-size: 16px;
+    text-align: center;
+    cursor:pointer;
+}
+.page1-button{
+    padding: 1em 1.5em;
+    border: .05em solid white;
+    border-radius: .2em;
+}
+.page1-button:hover{
+    color: black;
+    background: white;
+}
+
+/*第二屏幕（推荐教师）的内容*/
+.page2{
+    width:100%;
+    background: white no-repeat;
+    background-size: 100% 100%;
+}
+.page2-head1{
+    margin:3.5em auto 0;
+    padding:0 1.3em 0 0;
+    text-align: center;
+    font-size:30px;
+    color: hsl(0,0%,40%);
+}
+.page2-head2{
+    margin:.5em auto 0;
+    padding:0 1.3em 0 0;
+    text-align: center;
+    font-size:30px;
+    color: hsl(0,0%,40%);
+}
+/*第二屏幕中教师列表盒子的布局*/
+/*第一行*/
+.partner-list-box{
+    padding:0 1.3em 0 0;
+    margin: 1.2em auto 0;
+    width:74vw;
+}
+.partner-list-line:nth-child(1){
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    -moz-flex-direction:row;
+    -webkit-flex-direction:row;
+    justify-content: space-around;
+    -moz-justify-content:space-around;
+    -webkit-justify-content:space-around;
+}
+.partner-list-single{
+    position: relative;
+    width: 18vw;
+    height: 18vw;
+    font-size:12px;
+}
+.cloth-screen{
+    position: absolute;
+    z-index: 1;
+    visibility: visible;
+    border-radius: .4em;
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+.cloth-screen:hover{
+    background: hsla(0,0%,80%,.3);
+}
+.partner-list-single > img{
+    height: 100%;
+    width: 100%;
+    border-radius:.5vw;
+    cursor: pointer;
+}
+.partner-list-img-left{
+    clip-path: polygon(0 0,100% 0,100% 19%,91% 25%,100% 31%,100% 100%,0 100%);
+}
+.partner-list-img-between{
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    -moz-flex-direction: column;
+    -webkit-flex-direction: column;
+    justify-content: space-between;
+    -moz-justify-content: space-between;
+    -webkit-justify-content: space-between;
+}
+.sub-partner-between{
+    height: 50%;
+    width: 100%;
+    background: hsl(0,0%,95%);
+}
+.sub-partner-between-top{
+    padding: 0 0 0 8%;
+    position: relative;
+    right: 8%;
+    clip-path: polygon(8% 0,8% 39%,0 50%,8% 61%,8% 100%,100% 100%,100% 0);
+    border-radius: .4em;
+}
+.sub-partner-between-bottom{
+    padding: 0 8% 0 0;
+    position: relative;
+    clip-path: polygon(92% 4%,92% 39%,100% 50%,92% 61%,92% 100%,0 100%,0 4%);
+    border-radius: .4em;
+}
+.partner-list-img-right{
+    clip-path: polygon(0 0,0 69%,9% 75%,0 81%,0 100%,100% 100%,100% 0);
+}
+.sub-partner-between-top > .partner-name{
+    font-size: 2vw;
+    margin-top: .23em;
+    color:hsl(0,0%,60%);
+}
+.sub-partner-between-bottom > .partner-name{
+    font-size: 2vw;
+    margin-top: .23em;
+    color:hsl(0,0%,60%);
+
+}
+.sub-partner-between > .partner-E{
+    font-size: 1vw;
+    color:hsl(0,0%,40%);
+}
+.sub-partner-between > .partner-C{
+    font-size: 1vw;
+}
+.partner-list-item{
+    border-radius: .4em;
+    background: hsl(0,0%,95%);
+}
+.partner-item-image{
+    height: 40%;
+    width: 40%;
+    margin:1em auto 0;
+}
+.partner-item-image > img{
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+.partner-list-item > .partner-C{
+    font-size: 1vw;
+    text-align: center;
+}
+.partner-list-item > .partner-E{
+    font-size: 1vw;
+    color:hsl(0,0%,40%);
+    text-align: center;
+}
+.partner-list-item > .partner-name{
+    font-size: 2vw;
+    color:hsl(0,0%,60%);
+    text-align: center;
+    margin:.2em 0;
+}
+/*第二行*/
+.partner-list-line:nth-child(2){
+    margin:1em 0 0 0;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row-reverse;
+    -moz-flex-direction:row-reverse;
+    -webkit-flex-direction:row-reverse;
+    justify-content: space-around;
+    -moz-justify-content:space-around;
+    -webkit-justify-content:space-around;
+}
+
+.page2-foot1{
+    padding: 0 1.4em 0 0;
+    margin:1em 0 0 0;
+    text-align: center;
+    color:hsl(0,90%,65%);
+}
+.page2-foot2{
+    padding: 0 1.4em 0 0;
+    margin:0;
+    text-align: center;
+    color:hsl(0,90%,65%);
+}
+.page2-extra{
+    position: relative;
+    right: .4em;
+    margin:1em auto;
+    width: 1em;
+    height: 1em;
+    color: white;
+    font-size: 3vw;
+    border-radius: 50% 50%;
+    background: hsl(0,90%,65%);
+    border:1px solid transparent;
+    cursor: pointer;
+}
+/*旋转以后需要改变这里的bottom*/
+.page2-extra > p{
+    margin:0;
+    width: 100%;
+    line-height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+    bottom: .05em;
+}
+
+/*展开以后的额外教师的界面*/
+.page2-hidden{
+    display: block;
+    width: 100%;
+    height: 0;
+    background: hsl(0,0%,95%);
+    overflow: hidden;
+}
+.page2-hidden-list{
+    margin:2em auto;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    -moz-flex-direction: row;
+    -webkit-flex-direction: row;
+    justify-content:space-around;
+    -moz-justify-content:space-around;
+    -webkit-justify-content:space-around;
+    align-content:space-between;
+    -moz-align-content:space-between;
+    -webkit-align-content:space-between;
+    flex-wrap: wrap;
+    -webkit-flex-wrap:wrap;
+    width: 80%;
+    font-size: 14px;
+}
+.page2-hidden-item{
+    margin:2em 0 0 0;
+    width: 250px;
+    height: 250px;
+    background: white;
+    border-radius: .4em;
+    text-align: center;
+    cursor: pointer;
+}
+.page2-hidden-item:hover{
+    box-shadow: 0 0 0 .5em white,0 0 0 .3em hsla(0,10%,80%,0.7);
+}
+.page2-hidden-item-image{
+    height: 30%;
+    width: 30%;
+    margin:1em auto 0;
+}
+.page2-hidden-item-image > img{
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 50%;
+}
+.page2-hidden-item > .page2-hidden-name{
+    font-size: 20px;
+    margin:0 0 .6em;
+}
+.page2-hidden-E{
+    color:hsl(0,0%,50%);
+    margin:0 0 .4em;
+}
+#page2-hidden > .page2-head1{
+    display: none;
+}
+#page2-hidden > .page2-head2{
+    display: none;
+}
+/*教师推荐屏幕的弹性盒子布局*/
+.page3{
+    width:100%;
+    background: hsl(0,1%,97%);
+    background-size: 100% 100%;
+    padding: .01em;
+}
+.page3-head1{
+    margin:3.5em auto 0;
+    padding:0 1.3em 0 0;
+    text-align: center;
+    font-size:30px;
+    color: hsl(0,0%,40%);
+}
+.page3-head2{
+    margin:.1em auto 0;
+    padding:0 1.3em 0 0;
+    text-align: center;
+    font-size:30px;
+    color: hsl(0,0%,40%);
+}
+/*教师列表的布局*/
+.teacher-list{
+    margin:2em auto 0;
+    width: 80vw;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-around;
+    -moz-justify-content: space-around;
+    -webkit-justify-content: space-around;
+    flex-direction: row;
+    -moz-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+}
+.teacher-list-item{
+    width: 250px;
+    height: 350px;
+    background: white;
+    border-left: .05em solid hsl(0,0%,95%);
+    box-shadow: .2em .2em .3em hsl( 0, 0%, 30%);
+    cursor: pointer;
+}
+.teacher-item-img{
+    position: relative;
+    padding: .05em;
+    width: 100%;
+    height: 250px;
+}
+.teacher-item-img > img{
+    width: 100%;
+    height: 100%;
+}
+.teacher-item-name{
+    margin: .2em 0;
+    padding: 0 0 0 2%;
+    width: 98%;
+    color: hsl(0,0%,70%);
+}
+.skill-item{
+    padding: 0 0 0 2%;
+    margin: .15em 0;
+    color:hsl(0,0%,40%);
+    font-size: 1.4vw;
+}
+/*教师那个屏幕的额外页面按钮*/
+.page3-foot1{
+    padding: 0 1.4em 0 0;
+    margin:1em 0 0 0;
+    text-align: center;
+    color:hsl(0,90%,65%);
+}
+.page3-foot2{
+    padding: 0 1.4em 0 0;
+    margin:0;
+    text-align: center;
+    color:hsl(0,90%,65%);
+}
+.page3-extra{
+    position: relative;
+    right: .4em;
+    margin:1em auto;
+    width: 1em;
+    height: 1em;
+    color: white;
+    font-size: 3vw;
+    border-radius: 50% 50%;
+    background: hsl(0,90%,65%);
+    border:1px solid transparent;
+    cursor: pointer;
+}
+.teacher-list-extra{
+    margin-top:0;
+    flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+}
+.teacher-list-extra > .teacher-list-item{
+    margin-top: 40px;
+}
+/*旋转以后需要改变这里的bottom*/
+.page3-extra > p{
+    margin:0;
+    width: 100%;
+    line-height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+    bottom: .05em;
+}
+
+/* 其他的一些信息的样式表*/
+.other-info{
+    width: 100%;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    -moz-flex-direction: row;
+    -webkit-flex-direction: row;
+    justify-content: space-between;
+    -moz-justify-content: space-between;
+    -webkit-justify-content: space-between;
+    background: black;
+}
+.other-info-left{
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    -moz-flex-direction: row;
+    -webkit-flex-direction: row;
+    justify-content: space-around;
+    -moz-justify-content: space-around;
+    -webkit-justify-content: space-around;
+    width: 45%;
+}
+.other-info-right{
+    margin:0 2em 0 0;
+}
+.other-info-left > .other-info-items{
+    flex: 1;
+    -moz-flex: 1;
+    -webkit-flex: 1;
+    width: 10em;
+    text-align: center;
+    color:hsl(0,0%,50%);
+    padding: 4em 0 2em;
+    font-size:1vw;
+}
+.other-info-right > .other-info-items{
+    flex: 1;
+    -moz-flex: 1;
+    -webkit-flex: 1;
+    text-align: left;
+    color:hsl(0,0%,50%);
+    padding: 3em 0 0 1em;
+    font-size:1vw;
+}
+.other-info-item{
+    margin: 1em auto;
+    padding: .5em 2em 0;
+}
+.other-info-item:nth-child(1){
+    font-size:1.5vw;
+}
+/*最后的注脚*/
+.home-foot{
+    display: block;
+    text-align: center;
+    color:hsl(0,0%,50%);
+    padding:1em 0;
+    font-size: 1.2vw;
+    border-top:.1em solid hsl(0,0%,50%);
+    background: black;
+}
+@media screen and (max-width: 1305px){
+    /*教师推荐置顶的四个*/
+    #teacher-list > .teacher-list-item:nth-child(4){
+        display: none;
+    }
+    .page3-head1{
+        padding-right:0;
+    }
+    .page3-head2{
+        padding-right:0;
+    }
+    .page2-head1{
+        padding-right:0;
+    }
+    .page2-head2{
+        padding-right:0;
+    }
+}
+@media screen and (max-width: 1029px){
+    /*首页中间的两个按钮*/
+    .page1-buttons{
+        width: 32vw;
+    }
+    /*当屏幕宽度过小，把隐藏的page2界面作为page2的主界面*/
+    .page2-hidden{
+        height:auto;
+    }
+    #page2-hidden > .page2-head1{
+        display: block;
+    }
+    #page2-hidden > .page2-head2{
+        display: block;
+    }
+    .page2{
+        display: none;
+    }
+}
+@media screen and (max-width: 954px){
+    /*顶部的导航栏中指向教室和语伴的部分*/
+    .items
+    {
+        display:none;
+    }
+    #teacher-list > .teacher-list-item:nth-child(4){
+        display: block;
+    }
+    #teacher-list > .teacher-list-item{
+        margin-top: 40px;
+    }
+}
+@media screen and (max-width: 830px){
+    /*首页中间的两个按钮*/
+    .page1-buttons{
+        width: 40vw;
+    }
+}
+@media screen and (max-width: 750px){
+    .other-info{
+        display: none;
+    }
+}
+@media screen and (max-width: 680px){
+    /*首页中间的两个按钮*/
+    .page1-buttons{
+        width: 50vw;
+    }
+    /*首页中的两行字*/
+    .page1-head1{
+        font-size:30px;
+    }
+    .page1-head2{
+        font-weight: lighter;
+        font-size:30px;
+    }
+}
+@media screen and (max-width: 560px){
+    /*首页中间的两个按钮*/
+    .page1-buttons{
+        width: 65vw;
+    }
+    /*首页中的两行字*/
+    .page1-head1{
+        font-size:30px;
+    }
+    .page1-head2{
+        font-size:30px;
+    }
+}
+@media screen and (max-width: 400px){
+    /*首页中间的两个按钮*/
+    .page1-buttons{
+        width: 90vw;
+    }
+    .image{
+        margin-left: 5px;
+    }
+    .login-regist{
+        width: 11em;
+    }
+    .head-transparent{
+        height:2em;
+    }
+}

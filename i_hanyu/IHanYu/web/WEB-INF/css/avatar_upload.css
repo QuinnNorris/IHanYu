@@ -1,0 +1,39 @@
+.image-editor{
+	margin-left: 100px;
+}
+.cropit-preview {
+	background-color: #f8f8f8;
+	background-size: cover;
+	border: 5px solid #ccc;
+	border-radius: 3px;
+	margin-top: 7px;
+	width: 200px;
+	height:200px;
+}
+
+.cropit-preview-image-container {
+	cursor: move;
+	background:url(../images/head-default.jpg) center no-repeat;
+}
+
+.cropit-preview-background {
+	opacity: .2;
+	cursor: auto;
+}
+
+.image-size-label {
+	margin-top: 10px;
+}
+
+input, .export {
+	/* Use relative position to prevent from being covered by image background */
+	position: relative;
+	z-index: 10;
+	display: block;
+}
+
+button {
+	margin-top: 10px;
+}
+
+.cropit-image-input{}

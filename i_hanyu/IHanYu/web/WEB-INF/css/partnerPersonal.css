@@ -1,0 +1,565 @@
+body,html{margin:0;padding:0;width:100%;height:100%;}
+.main{height:100%;width:100%;font-size:18px;border-top: .01em solid transparent;}
+
+
+/*网页顶端的导航栏布局*/
+.head{
+    top: -.01em;
+    z-index: 100;
+    position: fixed;
+    display: flex;
+    display: -webkit-flex;
+    width: 100%;
+    height: 5em;
+    flex-direction: row;
+    -moz-flex-direction: row;
+    -webkit-flex-direction: row;
+    justify-content: space-between;
+    -moz-justify-content: space-between;
+    -webkit-justify-content: space-between;
+    background: white;
+    color:hsl(0,5%,50%);
+    box-shadow: 0 .15em .1em hsla(0,10%,80%,0.7);
+}
+.space-row{
+    height: 100%;
+    flex: 1;
+    -webkit-flex: 1;
+}
+.space-image{
+    flex: .16;
+    -webkit-flex: .16;
+}
+.login-regist-space{
+    flex: .16;
+    -webkit-flex: .16;
+}
+.image-space-items{
+    flex: 1.3;
+    -webkit-flex: 1.3;
+}
+.items-space-login-regist{
+    flex: .7;
+    -webkit-flex: .7;
+}
+.image{
+    margin:auto 0 auto 0;
+    display: block;
+    width: 5em;
+    height: 5em;
+    background: url(../images/ihanyulogo1.png) no-repeat;
+    background-size: 100% 100%;
+}
+.items{
+    margin: 0 0 0 0;
+    width: 26em;
+    height: 100%;
+    line-height: 5em;
+}
+.item{
+    display: inline-block;
+    line-height: 1em;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.item:hover{ color:hsl(0,5%,20%); }
+.item:nth-child(1){
+    margin-right: 3em;
+}
+.item:nth-child(2){
+    margin-right: 1em;
+}
+.login-regist{
+    width: 10em;
+    line-height: 5em;
+}
+.login-regist-item{
+    padding:0.1em 1.2em;
+    display: inline-block;
+    line-height: 1.4em;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    border-radius: .4em;
+    font-size: 14px;
+}
+.login-regist-item:nth-child(1){
+    border:.05em solid hsl(0,5%,30%);
+    color: hsl(0,5%,30%);
+}
+.login-regist-item:nth-child(1):hover{
+    border:.05em solid hsl(0,90%,65%);
+    color: hsl(0,90%,65%);
+}
+.login-regist-item:nth-child(2){
+    color: white;
+    border:.05em solid hsl(0,90%,65%);
+    background: hsl(0,90%,65%);
+}
+.login-regist-item:nth-child(2):hover{
+    border:.05em solid hsl(0,80%,70%);
+    background: hsl(0,80%,70%);
+}
+.user{
+    font-size: 25px;
+    width: 7em;
+    display:none;
+}
+.user_head{
+    width: 1em;
+    height: 1em;
+    border-radius: 50% 50%;
+    vertical-align: middle;
+    border:none;
+    outline: none;
+    display: inline-block;
+    overflow: hidden;
+    cursor: pointer;
+}
+.user_name{
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    overflow: hidden;
+    max-width: 70%;
+    white-space: nowrap;
+}
+.user_item{
+    font-size: 18px;
+    line-height: 3em;
+    position: relative;
+    top:-1em;
+    background: white;
+    width: 10em;
+    box-shadow: 0 .1em .1em .1em hsla(0,10%,80%,0.7);
+    cursor: pointer;
+    display: none;
+}
+.user_item_transparent{
+    font-size: 18px;
+    line-height: 3em;
+    position: relative;
+    background: hsla(0,0%,5%,.4);
+    width: 10em;
+    color: white;
+    margin-bottom: .1em;
+    cursor: pointer;
+    display: none;
+}
+
+/*个人中心的主页面*/
+.content{
+    width: 100%;
+    padding: .01em 0 0 0;
+    background: #ececea;
+}
+.main-frame{
+    margin: 5em auto 0;
+    max-width: 1160px;
+    width: 85%;
+    padding: .01em 0 0 0;
+
+}
+.header-frame{
+    margin: 4em 0 0;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 0 .22em hsla(0,0%,50%,.2);
+    border-radius: .27em .27em 0 0;
+    z-index: 1;
+}
+
+.avatar-block{
+    position: absolute;
+    left: 1em;
+    top: -2em;
+    box-shadow: 0 0 .22em hsla(0,0%,50%,.2);
+    width: 8.77em;
+    height: 8.77em;
+    z-index: 1;
+    background: white;
+    border-radius: .27em;
+}
+.avatar-info{
+    position: relative;
+    width: 100%;
+    height: 9.87em;
+    background: white;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    z-index: 2;
+}
+.avatar-info-left{
+    width: 10.77em;
+    height: 100%;
+}
+.avatar{
+    width: 8.77em;
+    height: 8.77em;
+    /*background: url(../images/1.png)  center center no-repeat;*/
+    background-size: 90% 90%;
+    position: relative;
+    top: -2em;
+    left: 1em;
+
+}
+.avatar-info-items{
+    position: relative;
+    line-height: 2em;
+    left: 1.5em;
+    top: -2em;
+    z-index: 3;
+}
+.avatar-info-item{
+    vertical-align: middle;
+    text-align: center;
+    line-height: 1.2em;
+    display: inline-block;
+    padding: .2em .95em;
+    background: hsla(0,0%,50%,.02);
+}
+.avatar-info-item:hover{
+    background: hsla(0,0%,50%,.07);
+}
+.avatar-info-item:nth-child(1){
+    border-right: .01em solid hsla(0,0%,50%,.1);
+}
+.avatar-info-num{
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+}
+.avatar-info-name{
+    cursor: pointer;
+    font-weight: normal;
+    text-align: center;
+    color: #666;
+}
+
+.avatar-info-right{
+    flex: 1;
+    -webkit-flex: 1;
+    height: 100%;
+}
+.username{
+    color: #444;
+    margin: .5em 0;
+    font-size: 120%;
+    font-weight: bold;
+    display: inline-block;
+}
+.change-info{
+    display: inline-block;
+    position: relative;
+    margin: .72em;
+    float: right;
+    font-size: 80%;
+    padding: .5em;
+    border: 1px solid #ccc;
+    border-radius: .2em;
+    background: linear-gradient(#fafafa,#f0f0f0);
+    cursor: pointer;
+}
+.change-info:hover{
+    background: linear-gradient(#f1f1f1,#ededed);
+}
+.avatar-extra{
+    height: 2.5em;
+    width: 100%;
+    background: hsla(0,0%,50%,.02);
+    border-top: .01em solid hsla(0,0%,50%,.1);
+}
+.header-fun{
+    height: 100%;
+    width: 8em;
+    display: flex;
+    display: -webkit-flex;
+}
+.focus-fun{
+    cursor: pointer;
+    flex: 1;
+    -webkit-flex: 1;
+    background: url(../images/focus-inactive.png) center center no-repeat;
+    background-size: 40% 60%;
+    border-right: .01em solid hsla(0,0%,50%,.1);
+}
+.focus-fun:hover{
+    flex: 1;
+    -webkit-flex: 1;
+    background: url(../images/focus-inactive.png) center center no-repeat , linear-gradient(white,white);
+    background-size: 40% 60%;
+    border-right: .01em solid hsla(0,0%,50%,.05);
+}
+.phrase-fun{
+    cursor: pointer;
+    flex: 1;
+    -webkit-flex: 1;
+    background: url(../images/phrase-inactive.png) center center no-repeat;
+    background-size: 40% 60%;
+    border-right: .01em solid hsla(0,0%,50%,.1);
+}
+.phrase-fun:hover{
+    flex: 1;
+    -webkit-flex: 1;
+    background: url(../images/phrase-inactive.png) center center no-repeat  , linear-gradient(white,white);
+    background-size: 40% 60%;
+    border-right: .01em solid hsla(0,0%,50%,.1);
+}
+
+
+/*主体部分左边的小卡片部分*/
+.content-frame{
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    padding: 0 0 2em 0;
+}
+.left-frame{
+    max-width: 334px;
+    width: 29%;
+    padding: 0 0 .01em 0;
+}
+.right-frame{
+    width: 68%;
+    max-width: 790px;
+    padding: 0 0 .01em 0;
+    margin: 0 auto;
+}
+.card{
+    margin: 2.5em auto 0;
+    width: 100%;
+    box-shadow: 0 0 .22em hsla(0,0%,50%,.2);
+    border-radius: .27em;
+    background: white;
+}
+.card-label{
+    font-size: 80%;
+    padding: .8em 1em;
+    border-bottom: .01em solid hsla(0,0%,50%,.2);
+}
+.card-content{
+    padding: 1em 1em .01em;
+}
+.card-item{
+    display: block;
+    margin: 0 0 1em;
+}
+.card-item-c{
+    display: block;
+    font-size: 80%;
+    margin: 0 0 .5em;
+    position: relative;
+    color: #444;
+    text-align: left;
+}
+.card-item-e{
+    display: block;
+    font-size: 80%;
+    position: relative;
+    color: #aaa;
+    text-align: left;
+}
+.location > .card-content{
+    padding: 0 0 .01em;
+}
+.map{
+    margin: 1em auto;
+    height: 10em;
+    width: 90%;
+}
+.message{
+    min-height: 10em;
+}
+
+/*教师推荐列表*/
+.recommend-teacher-list{
+    margin: 2.5em 0 0;
+    padding: 0 0 .01em 0;
+    width: 100%;
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    align-content: center;
+    -webkit-align-content: center;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+}
+.teacher-card{
+    margin: 0 0 2.5em 0;
+    border-top: .01em solid transparent;
+    font-size: 1.31vw;
+    width: 31%;
+    min-width: 150px;
+    cursor: pointer;
+}
+.cloth-screen{
+    position: absolute;
+    z-index: 1;
+    visibility: visible;
+    border-radius: .4em;
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+.cloth-screen:hover{
+    background: hsla(0,0%,80%,.3);
+}
+.teacher-avatar{
+    position: relative;
+    width: 100%;
+    height: 13.6em;
+}
+.teacher-avatar > img{
+    height: 100%;
+    width: 100%;
+}
+.teacher-info{
+    text-align: center;
+    width: 100%;
+    line-height: 3em;
+    background: white;
+}
+.teacher-name{
+    vertical-align: middle;
+}
+.teacher-skill{
+    vertical-align: middle;
+}
+/*留言部分*/
+.message-content{
+    width: 100%;
+    margin: 0 auto .5em;
+    overflow: auto;
+}
+.message-line{
+    width: 100%;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-wrap: nowrap;
+    -webkit-flex-wrap: nowrap;
+    border-bottom: .01em solid #aaa;
+    margin: .5em 0;
+}
+.message-line-right{
+    flex: 1;
+    -webkit-flex: 1;
+}
+.message-line-left{
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-wrap: nowrap;
+    -webkit-flex-wrap: nowrap;
+    align-content: flex-start;
+    -webkit-align-content: flex-start;
+    justify-content: flex-start;
+    -webkit-justify-content: flex-start;
+    height: 100%;
+    width: 4em;
+}
+.message-line-left-img{
+    width: 3em;
+    height: 3em;
+}
+.message-line-left-img > img{
+    height: 100%;
+    width: 100%;
+}
+.message-line-right-head{
+    color: #666;
+    font-size: 95%;
+}
+.message-line-right-content{
+    word-break :break-all;
+    margin: .5em 0 0 0;
+    color: #333;
+    font-size: 90%;
+    display: block;
+    min-height: 4em;
+    width : 100%;
+    flex: 1;
+    -webkit-flex: 1;
+}
+.message-line-right-time{
+    font-size: 80%;
+    color: #bbb;
+    margin: .5em 0;
+}
+.message-send-box{
+    height: 5em;
+    border: .01em solid #aaa;
+    margin: .5em auto;
+}
+.message-send-label{
+    color: #444;
+    font-size: 70%;
+}
+.message-send-button{
+    font-size: 80%;
+    border-radius: .3em;
+    padding: .5em .7em;
+    color: white;
+    background: #f75555;
+    display: inline-block;
+    cursor: pointer;
+    float: right;
+    position: relative;
+    margin: .5em .4em 1em;
+}
+.message-send-button:hover{
+    background: #f07575;
+}
+.message-more{
+    text-align: center;
+    padding: .5em;
+    color: #f75555;
+    cursor: pointer;
+}
+.message-more:hover{
+    color: red;
+}
+textarea{
+    border:none;
+    width: 99%;
+    height: 95%;
+    outline: none;
+    margin: 0 auto;
+    display: block;
+}
+/*屏幕尺寸控制*/
+.right-frame > .person{
+    display: none;
+}
+.right-frame > .location{
+    display: none;
+}
+@media screen and (max-width: 700px){
+    .items{
+        display: none;
+    }
+}
+@media screen and (max-width: 530px){
+    .left-frame{
+        display: none;
+    }
+    .right-frame {
+        width: 100%;
+    }
+    .right-frame > .person{
+        display: block;
+    }
+    .right-frame > .location{
+        display: block;
+    }
+}
