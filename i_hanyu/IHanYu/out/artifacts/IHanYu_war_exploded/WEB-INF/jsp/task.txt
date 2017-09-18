@@ -1,0 +1,15 @@
+1.
+student1 中1.整体还需要润色一下     2.s：fiedlerror 显示的位置和样式   3.js 图片预览    4.国家做成下拉框  最好是能做一点便捷选择  不然国家太多太难翻了
+student2 中1.把是否需要语伴移到student1   2.勾选框要做好    ps：日期那一栏已经被我删掉了 
+		刚把爹！奔奔
+		
+2.
+整体     头像照片尺寸需要设定     登陆 或者 登陆后的信息都放在导航栏上     整体样式精修。。。
+		
+student1 下拉框动态生成 
+student2 自我介绍框做大点吧
+teacher2 照片预览
+teacher3 先把排版排排好吧。。。   还有submit按钮
+teacher/student-search  表单按钮
+authentication 没有那么多照片要审核的。。 做一张证件照上传就可以了
+accountManage   两个表单

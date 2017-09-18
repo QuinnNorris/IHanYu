@@ -1,0 +1,515 @@
+body,html{margin:0;padding:0;width:100%;height:100%;}
+.main{height:100%;width:100%;font-size:18px;border-top: .01em solid transparent;}
+
+
+/*网页顶端的导航栏布局*/
+.head{
+    top: -.01em;
+    z-index: 100;
+    position: fixed;
+    display: flex;
+    display: -webkit-flex;
+    width: 100%;
+    height: 5em;
+    flex-direction: row;
+    -moz-flex-direction: row;
+    -webkit-flex-direction: row;
+    justify-content: space-between;
+    -moz-justify-content: space-between;
+    -webkit-justify-content: space-between;
+    background: white;
+    color:hsl(0,5%,50%);
+    box-shadow: 0 .15em .1em hsla(0,10%,80%,0.7);
+}
+.space-row{
+    height: 100%;
+    flex: 1;
+    -webkit-flex: 1;
+}
+.space-image{
+    flex: .16;
+    -webkit-flex: .16;
+}
+.login-regist-space{
+    flex: .16;
+    -webkit-flex: .16;
+}
+.image-space-items{
+    flex: 1.3;
+    -webkit-flex: 1.3;
+}
+.items-space-login-regist{
+    flex: .7;
+    -webkit-flex: .7;
+}
+.image{
+    margin:auto 0 auto 0;
+    display: block;
+    width: 5em;
+    height: 5em;
+    background: url(../images/ihanyulogo1.png) no-repeat;
+    background-size: 100% 100%;
+}
+.items{
+    margin: 0 0 0 0;
+    width: 26em;
+    height: 100%;
+    line-height: 5em;
+}
+.item{
+    display: inline-block;
+    line-height: 1em;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.item:hover{ color:hsl(0,5%,20%); }
+.item:nth-child(1){
+    margin-right: 3em;
+}
+.item:nth-child(2){
+    margin-right: 1em;
+}
+.login-regist{
+    width: 10em;
+    line-height: 5em;
+}
+.login-regist-item{
+    padding:0.1em 1.2em;
+    display: inline-block;
+    line-height: 1.4em;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    border-radius: .4em;
+    font-size: 14px;
+}
+.login-regist-item:nth-child(1){
+    border:.05em solid hsl(0,5%,30%);
+    color: hsl(0,5%,30%);
+}
+.login-regist-item:nth-child(1):hover{
+    border:.05em solid hsl(0,90%,65%);
+    color: hsl(0,90%,65%);
+}
+.login-regist-item:nth-child(2){
+    color: white;
+    border:.05em solid hsl(0,90%,65%);
+    background: hsl(0,90%,65%);
+}
+.login-regist-item:nth-child(2):hover{
+    border:.05em solid hsl(0,80%,70%);
+    background: hsl(0,80%,70%);
+}
+.user{
+    font-size: 25px;
+    width: 7em;
+    display:none;
+}
+.user_head{
+    width: 1em;
+    height: 1em;
+    border-radius: 50% 50%;
+    vertical-align: middle;
+    border:none;
+    outline: none;
+    display: inline-block;
+    overflow: hidden;
+    cursor: pointer;
+}
+.user_name{
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    overflow: hidden;
+    max-width: 70%;
+    white-space: nowrap;
+}
+.user_item{
+    font-size: 18px;
+    line-height: 3em;
+    position: relative;
+    top:-1em;
+    background: white;
+    width: 10em;
+    box-shadow: 0 .1em .1em .1em hsla(0,10%,80%,0.7);
+    cursor: pointer;
+    display: none;
+}
+
+/*教师搜索的主页面*/
+.content{
+    width: 100%;
+    padding: .01em 0;
+    background: #ececea;
+}
+.main-frame{
+    margin: 5em auto 0;
+    max-width: 1160px;
+    width: 85%;
+    padding: .01em 0;
+}
+
+/*主页面的每一部分，基本是按照行来分的*/
+.line{
+    margin: 1.5em auto 0;
+    width: 100%;
+}
+/*标题-要求-搜索模块*/
+.title-require-search{
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    justify-content: flex-start;
+    -webkit-justify-content: flex-start;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+}
+.title-card:before{
+    content: "";
+    display: inline-block;
+    vertical-align: top;
+    width: 1em;
+    height: 1em;
+    background-size: 100% 100%;
+    background-image: url("../images/more.png");
+}
+.title-card{
+    font-weight: bold;
+    margin: 0 .7em 1em 0;
+    line-height: 1em;
+}
+.red-title{
+    display: inline-block;
+    color: #ee0000;
+}
+.black-title{
+    margin: 0 0 0 .1em;
+    display: inline-block;
+    color: #333;
+}
+/*搜索界面被选中的条件*/
+.require-card{
+    margin: 0 .7em 1em 0;
+    font-size: 80%;
+    padding: .2em .5em;
+    color: #ee0000;
+    line-height: 1em;
+    vertical-align: middle;
+    border: .01em solid transparent;
+    background: linear-gradient(#ececea,#ececea) center center repeat,linear-gradient(45deg,transparent 25%,#ee0000 0,#ee0000 50%,transparent 0,transparent 75%,#ee0000 0) center center repeat;
+    background-clip: padding-box,border-box;
+    background-size: 100% 100%,.9em .9em;
+    cursor: pointer;
+}
+.require-card > div{
+    vertical-align: middle;
+    display: inline-block;
+    margin: 0;
+}
+.require-card:after{
+    content: " ";
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: middle;
+    background: url("../images/clear.png") center center no-repeat;
+    background-size: 100% 100%;
+}
+/*搜索框*/
+.search-card{
+    margin: 0 .4em 0 1em;
+    height: 1.2em;
+    line-height: 1.2em;
+    vertical-align: middle;
+}
+.search-card-box{
+    margin: 0 .4em 0 .3em;
+    display: inline-block;
+    height: 1.2em;
+    border: .1em solid #888;
+    line-height: 1.2em;
+    vertical-align: middle;
+}
+.search-card:before{
+    content: " ";
+    display: inline-block;
+    vertical-align: middle;
+    height: 1.2em;
+    width: 1.2em;
+    background: url("../images/right-arrow.png") center center no-repeat;
+    background-size: 100% 100%;
+}
+.text-search{
+    width: 10em;
+    height: 100%;
+    background: transparent;
+    outline: none;
+    border:none;
+    vertical-align: middle;
+    display: inline-block;
+}
+.search-img{
+    display: inline-block;
+    height: 1.2em;
+    width: 1.2em;
+    background: url("../images/search.png") center center no-repeat;
+    background-size: 90% 90%;
+    vertical-align: top;
+    cursor: pointer;
+}
+
+/*表格单元*/
+.table{
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    background: white;
+    border: .01em solid #ececea;
+    margin-top: 1em;
+}
+.table-line{
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    width: 100%;
+    border-bottom: .01em solid #ececea;
+    padding:0 0 .24em 0;
+}
+.table-line:last-child{
+    border-bottom: none;
+}
+.table-column-left{
+    width: 5.4em;
+    padding: 0 .5em 0 0;
+    border-right: .01em solid #ececea;
+}
+.table-label{
+    position: relative;
+    float: right;
+    margin: .24em 0 0 0;
+    color: #666;
+    font-size: 80%;
+    text-align: right;
+}
+.table-column-right{
+    flex: 1;
+    -webkit-flex: 1;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    justify-content: flex-start;
+    -webkit-justify-content: flex-start;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    align-items: center;
+    -webkit-align-items: center;
+    padding: 0 0 0 .5em;
+}
+.table-item{
+    color: #666;
+    text-align: left;
+    line-height: 1em;
+    cursor: pointer;
+}
+.table-item:hover{
+    color: #ee0000;
+}
+.table-item-c{
+    font-size: 80%;
+}
+.table-item-e{
+    font-size: 80%;
+}
+.item-chinese{
+    margin: .2em 2em 0 0;
+    width: 5em;
+}
+.item-time{
+    margin: .2em 2em 0 0;
+    width: 5em;
+}
+.item-dis{
+    margin: .2em 0 0 0;
+    width: 7em;
+}
+.item-skill{
+    margin: .2em 5em 0 0;
+    width: 9em;
+}
+.item-level{
+    margin: .2em 5em 0 0;
+    width: 9em;
+}
+.item-price-input{
+    height: 60%;
+    width: 3em;
+    border: .01em solid #666;
+}
+.item-price-input > input{
+    position: relative;
+    height: 100%;
+    width: 90%;
+    outline: none;
+    border: none;
+    padding: 0 .2em;
+    bottom: 3px;
+    text-align: center;
+}
+.item-price{
+    margin: 0 .5em;
+    height: .1em;
+    width: 1.5em;
+    background: #666;
+}
+.item-price-unit{
+    color: #666;
+    margin: 0 0 0 .2em;
+}
+/*教师信息的部分*/
+.info{
+    margin: 1.5em auto 0;
+    width: 100%;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-wrap: nowrap;
+    -webkit-flex-wrap: nowrap;
+    align-items: center;
+    -webkit-align-items: center;
+}
+.info-cards{
+    width: 85%;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    max-width: 1160px;
+}
+.info-card{
+    margin:0 0 1.5em 0;
+    width: 15em;
+    height: 15em;
+    background: white;
+    border-radius: .5em;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-wrap: nowrap;
+    -webkit-flex-wrap: nowrap;
+    cursor: pointer;
+}
+.info-card:hover{
+    box-shadow: 0 0 0 .1em hsla(0,0%,10%,.1);
+}
+.info-card-head{
+    width: 100%;
+    height: 6em;
+    background: radial-gradient(transparent 70%,white 0) bottom center no-repeat , url("../images/1.png") bottom center no-repeat;
+    background-size: 5em 5em,5em 5em;
+}
+.info-card-distance{
+    margin: .5em 0 0 .5em;
+    font-size: 80%;
+    color: #ccc;
+}
+.info-card-location{
+    margin: 0 0 0 .5em;
+    font-size: 70%;
+    color: #ccc;
+}
+.info-card-goodAt{
+    margin: 1em auto;
+    width: 80%;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    -webkit-flex-direction: row;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+}
+.info-card-goodAt-item{
+    width: 50%;
+    font-size: 90%;
+}
+.info-card-goodAt-item > span{
+    font-size: 80%;
+    color: #666;
+}
+.info-card-name{
+    text-align: center;
+    color: #444;
+}
+.info-card-price{
+    text-align: center;
+    color: #444;
+}
+.info-card-price > span{
+    color: #f797a4;
+}
+.info-card-goodAt-item{
+    text-align: center;
+    color: #444;
+}
+.info-cards-side{
+    flex: 1;
+    -webkit-flex: 1;
+    height: 100%;
+    display: block;
+}
+.arrow-box{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: block;
+}
+.right-arrow{
+    height: 3vw;
+    width: 3vw;
+    background: url("../images/right-arrow1.png") center center no-repeat;
+    background-size: 100% 100%;
+    cursor: pointer;
+}
+.left-arrow{
+    height: 3vw;
+    width: 3vw;
+    vertical-align: middle;
+    background: url("../images/left-arrow1.png") center center no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    float: right;
+    cursor: pointer;
+}
+
+
+/*地图*/
+.map-main-frame{
+    margin:0 auto 1.5em;
+}
+.map-box{
+    width: 100%;
+    background: white;
+    border-radius: .5em;
+    padding: .01em 0;
+}
+.map-label{
+    margin:1em 0 1em;
+    text-align: center;
+}
+.map-content{
+    width: 95%;
+    height: 30em;
+    margin: 0 auto 1em;
+    border-radius: .5em;
+    background-size:50% 50%;
+}
