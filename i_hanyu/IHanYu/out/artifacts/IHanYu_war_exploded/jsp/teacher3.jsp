@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>爱汉语</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
-	<link rel="stylesheet" type="text/css" href="./css/teacher3.css">
+	<link rel="stylesheet" type="text/css" href="../res/css/teacher3.css">
 </head>
 <body>
 <div class="main">
@@ -25,10 +24,10 @@
 			<div class="login-regist-item" id="login">登录<br/>Login</div>
 			<div class="login-regist-item" id="regist">注册<br/>Regist</div>
 			<div class="user">
-				<img class="user_head" src='<s:property value="#session.userInfo.userAvatar()"></s:property>' >
-				<div class="user_name"><s:property value="#session.userInfo.userName()"></s:property> </div>
+				<%--<img class="user_head" src='<s:property value="#session.userInfo.userAvatar()"></s:property>' >
+				<div class="user_name"><s:property value="#session.userInfo.userName()"></s:property> </div>--%>
 			</div>
-			<div class="user_item" onclick="changePerson('<s:property value="#session.userInfo.userCenter()"></s:property>')">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;个人中心</div>
+			<%--<div class="user_item" onclick="changePerson('<s:property value="#session.userInfo.userCenter()"></s:property>')">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;个人中心</div>--%>
 			<div class="user_item" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首页</div>
 			<div class="user_item" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;教师</div>
 			<div class="user_item" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;语伴</div>
@@ -240,10 +239,10 @@
 	</div>
 </div>
 </body>
-<script type="text/javascript" src="./js/jquery-3.2.0.min.js"></script>
-<script type="text/javascript" src="./js/header.js"></script>
-<script type="text/javascript" src="./js/teacher3.js"></script>
-<script type="text/javascript" src="./js/registerMap.js"></script>
+<script type="text/javascript" src="../res/js/jquery-3.2.0.min.js"></script>
+<script type="text/javascript" src="../res/js/header.js"></script>
+<script type="text/javascript" src="../res/js/teacher3.js"></script>
+<script type="text/javascript" src="../res/js/registerMap.js"></script>
 <script src="http://webapi.amap.com/maps?v=1.3&key=d61e8ab3f329129acd1bce7dbfbfac51&callback=mapInit&plugin=AMap.Autocomplete,AMap.PlaceSearch"></script>
 <script type="text/javascript">
 	function submit(){

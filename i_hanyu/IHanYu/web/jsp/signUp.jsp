@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%--<%@ taglib prefix="s" uri="/struts-tags" %>--%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,5 +49,5 @@
 </body>
 <script type="text/javascript" src="../res/js/jquery-3.2.0.min.js"></script>
 <script type="text/javascript" src="../res/js/header.js"></script>
-<script type="text/javascript" src="../res/js/sign-up.js"></script>
+<script type="text/javascript" src="../res/js/signUp.js"></script>
 </html>

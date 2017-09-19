@@ -7,6 +7,8 @@ import com.quinnnorris.ssm.util.BaseJson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Title: RegisterServiceImpl
  * Description:
@@ -25,5 +27,16 @@ public class RegisterServiceImpl implements RegisterService {
     @Override
     public BaseJson insertUserFromReg(UserCustom userCustom) {
         return null;
+    }
+
+    @Override
+    public BaseJson findUserByEmail(UserCustom userCustom) {
+        BaseJson baseJson = new BaseJson();
+        List<UserCustom> selectRes = userCustomMapper.selectUserByEmail(userCustom);
+        if (selectRes != null && selectRes.size() >= 1)
+            baseJson.setErrorCode("1001");//用户已经注册
+        else
+            baseJson.setErrorCode("0001");//用户可以注册
+        return baseJson;
     }
 }

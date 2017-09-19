@@ -1,72 +1,70 @@
 /**
  * Created by dell2 on 2017/5/1.
  */
-$(document).ready(function(){
+$(document).ready(function () {
     /*控制用户名的信息以及注销等*/
     $(".login-regist").eq(0).hover(
-        function(){
-            if($(".login-regist-item").css("display")=="none")
-            {
+        function () {
+            if ($(".login-regist-item").css("display") == "none") {
                 $(".user_item").show();
             }
         },
-        function(){
+        function () {
             $(".user_item").hide();
         }
     );
     /*首页顶部的三个跳转，分别指向主页、教师、学生*/
-    $(".item").eq(0).click(function(){
-        window.location.href="index.jsp";
+    $(".item").eq(0).click(function () {
+        window.location.href = "index.jsp";
     });
-    $(".item").eq(1).click(function(){
-        window.location.href="teacherSearch.action";
+    $(".item").eq(1).click(function () {
+        window.location.href = "teacherSearch.action";
     });
-    $(".item").eq(2).click(function(){
-        window.location.href="partnerSearch.action";
+    $(".item").eq(2).click(function () {
+        window.location.href = "partnerSearch.action";
     });
     /*隐藏主页、教师、语伴的跳转*/
-    $(".user_item").eq(1).click(function(){
-        window.location.href="index.jsp";
+    $(".user_item").eq(1).click(function () {
+        window.location.href = "index.jsp";
     });
-    $(".user_item").eq(2).click(function(){
-        window.location.href="teacherSearch.action";
+    $(".user_item").eq(2).click(function () {
+        window.location.href = "teacherSearch.action";
     });
-    $(".user_item").eq(3).click(function(){
-        window.location.href="partnerSearch.action";
+    $(".user_item").eq(3).click(function () {
+        window.location.href = "partnerSearch.action";
     });
     /*登录与注册页面的跳转*/
-    $("#login").click(function(){
-        window.location.href="signIn.jsp";
+    $("#login").click(function () {
+        window.location.href = "signIn.jsp";
     });
-    $("#regist").click(function(){
-        window.location.href="signUp.jsp";
+    $("#regist").click(function () {
+        window.location.href = "signUp.jsp";
     });
 });
 /**
  * 判断登录状态
  */
-window.onload=function submitComment()
-{
+window.onload = function submitComment() {
     $.ajax({
-        type : "post",//请求方式
-        url : "getLoginState",
-        timeout : 800000,//超时时间：800秒
-        dataType : "json",//设置返回数据的格式
-        data : {
-        },
+        type: "post",//请求方式
+        url: "/getLoginState",
+        timeout: 800000,//超时时间：800秒
+        dataType: "json",//设置返回数据的格式
+        data: {},
         //请求成功后的回调函数 data为json格式
-        success : function(data) {
-            var jsondata=$.parseJSON(data);
-            if(jsondata.result=="true"){
+        success: function (data) {
+            //var jsondata=$.parseJSON(data);
+            //if(jsondata.result=="true"){
+            if (data.errorCode == "true") {
                 $(".user").show();
                 $(".login-regist-item").hide();
             }
-            else{
+            else {
                 $(".user").hide();
                 $(".login-regist-item").show();
             }
         },
-        error : function() {
+        error: function () {
             alert("请求出错！");
         }
     });
@@ -77,21 +75,21 @@ window.onload=function submitComment()
  */
 function LoginOut() {
     $.ajax({
-        type : "post",//请求方式
-        url : "loginOut",
-        timeout : 800000,//超时时间：800秒
+        type: "post",//请求方式
+        url: "loginOut",
+        timeout: 800000,//超时时间：800秒
         // dataType : "json",
-        data : {
-        },
+        data: {},
         //请求成功后的回调函数 data为json格式
-        success : function(data) {
-            window.location.href="./index.jsp";
+        success: function (data) {
+            window.location.href = "./index.jsp";
         },
-        error : function() {
+        error: function () {
             alert("请求出错！");
         }
     });
 }
-function changePerson(url){
-    window.location.href=url;
+
+function changePerson(url) {
+    window.location.href = url;
 }

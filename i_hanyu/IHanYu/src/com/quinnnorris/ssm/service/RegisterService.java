@@ -16,4 +16,5 @@ public interface RegisterService {
 
     public BaseJson insertUserFromReg(UserCustom userCustom);
 
+    public BaseJson findUserByEmail(UserCustom userCustom);
 }

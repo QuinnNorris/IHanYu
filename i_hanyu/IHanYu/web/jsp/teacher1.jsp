@@ -6,7 +6,7 @@
 	<title>爱汉语</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
-	<link rel="stylesheet" type="text/css" href="./css/teacher1.css">
+	<link rel="stylesheet" type="text/css" href="../res/css/teacher1.css">
 </head>
 <body>
 <div class="main">
@@ -100,6 +100,7 @@
 <script type="text/javascript" src="../res/js/jquery-3.2.0.min.js"></script>
 <script type="text/javascript" src="../res/js/header.js"></script>
 <script type="text/javascript" src="../res/js/teacher1.js"></script>
+<script type="text/javascript" src="../res/js/md5.js"></script>
 <script type="text/javascript">
 //    function submit(){
 //        document.getElementById("account-info").submit();

@@ -48,7 +48,7 @@ body,html{margin:0;padding:0;width:100%;height:100%;}
 	display: block;
 	width: 5em;
 	height: 5em;
-	background: url(../images/ihanyulogo1.png) no-repeat;
+	background: url(../img/ihanyulogo1.png) no-repeat;
 	background-size: 100% 100%;
 }
 .items{
@@ -300,15 +300,15 @@ body,html{margin:0;padding:0;width:100%;height:100%;}
 	background: green;
 }
 .info-email-icon{
-	background: url("../images/email.png") center center no-repeat;
+	background: url("../img/email.png") center center no-repeat;
 	background-size: 50% 50%;
 }
 .info-pw-icon{
-	background: url("../images/pw.png") center center no-repeat;
+	background: url("../img/pw.png") center center no-repeat;
 	background-size: 50% 50%;
 }
 .info-ps-icon{
-	background: url("../images/pw.png") center center no-repeat;
+	background: url("../img/pw.png") center center no-repeat;
 	background-size: 50% 50%;
 }
 .info-input-icon{
@@ -327,15 +327,15 @@ body,html{margin:0;padding:0;width:100%;height:100%;}
 	width: 4.5em;
 }
 .info-line-email-note{
-	background: url("../images/wrong.png") 20% center no-repeat;
+	background: url("../img/wrong.png") 20% center no-repeat;
 	background-size:  .9em .9em;
 }
 .info-line-pw-note{
-	background: url("../images/wrong.png") 20% center no-repeat;
+	background: url("../img/wrong.png") 20% center no-repeat;
 	background-size:  .9em .9em;
 }
 .info-line-ps-note{
-	background: url("../images/wrong.png") 20% center no-repeat;
+	background: url("../img/wrong.png") 20% center no-repeat;
 	background-size:  .9em .9em;
 }
 .info-line-commit{

@@ -3,9 +3,9 @@
  */
 $(document).ready(function(){
     $(".regist-box-button").eq(0).click(function(){
-        window.location.href="${pageContext.request.contextPath}/teacher_register";
+        window.location.href="/teacher_register";
     });
     $(".regist-box-button").eq(1).click(function(){
-        window.location.href="${pageContext.request.contextPath}/student_register";
+        window.location.href="/student_register";
     });
 });
