@@ -72,13 +72,13 @@
                                 <div class="info-check-box">
                                     <div class="info-checkbox-box">
                                         <div class="info-check-icon info-check-icon-active">
-                                            <input type="radio" name="gender" value="1" checked="checked">
+                                            <input type="radio" id="gender" name="gender" value="1" checked="checked">
                                         </div>
                                         <div class="info-check-label">男 male</div>
                                     </div>
                                     <div class="info-checkbox-box">
                                         <div class="info-check-icon info-check-icon-inactive">
-                                            <input type="radio" name="gender" value="2">
+                                            <input type="radio" id="gender" name="gender" value="2">
                                         </div>
                                         <div class="info-check-label">女 female</div>
                                     </div>
@@ -86,7 +86,7 @@
                             </div>
                         </div>
                         <div class="info-avatar">
-                            <img id="imghead" src='<%=request.getContextPath()%>/img/avatar-updata.jpg'>
+                            <img id="imghead" src="../res/img/avatar.jpg">
                             <input type="file" name="headPortrait" type="file" onchange="previewImage(this)">
                             <input name="avatar" type="text" id="avatar" style="display: none;">
                         </div>
@@ -151,10 +151,10 @@
             dataType: "json",
             data: {
                 "firstName": firstName,
-                "secondName":secondName,
-                "sex":sex,
-                "teachingStyle":teachingStyle,
-                "teachingExperience":teachingExperience
+                "secondName": secondName,
+                "sex": sex,
+                "teachingStyle": teachingStyle,
+                "teachingExperience": teachingExperience
             },
             //请求成功后的回调函数 data为json格式
             success: function (data) {

@@ -1,6 +1,6 @@
 package com.quinnnorris.ssm.mapper;
 
-import com.quinnnorris.ssm.bean.UserCustom;
+import com.quinnnorris.ssm.bean.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -21,9 +21,16 @@ public interface UserCustomMapper {
 
     public void insertUserFromReg(UserCustom userCustom);
 
-    //public void insertBloginfoFromReg(BloginfoCustom bloginfoCustom);
-
     public List<UserCustom> selectUserByNickname(UserCustom userCustom);
 
+    public void insertTeacherFromReg(TeacherCustom teacherCustom);
+
+    public void insertTeaGoodFromReg(Tea_goodCustom tea_goodCustom);
+
+    public void insertTeaTimeFromReg(Tea_timeCustom tea_timeCustom);
+
+    public void insertStudentFromReg(StudentCustom studentCustom);
+
+    public void insertPartnerFromReg(PartnerCustom partnerCustom);
 }
 

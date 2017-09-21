@@ -86,7 +86,7 @@
                             </div>
                         </div>
                         <div class="info-avatar">
-                            <img id="imghead" src='<%=request.getContextPath()%>/img/avatarup.jpg'>
+                            <img id="imghead" src="../res/img/avatar.jpg">
                             <input type="file" name="headPortrait" type="file" onchange="previewImage(this)">
                             <input name="avatar" type="text" id="avatar" style="display: none;">
                         </div>

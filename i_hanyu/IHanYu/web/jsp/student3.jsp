@@ -1,20 +1,12 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: dell2
-  Date: 2017/5/15
-  Time: 23:27
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<%@ taglib prefix="s" uri="/struts-tags" %>
+         pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
     <title>爱汉语</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
-    <link rel="stylesheet" type="text/css" href="./css/student3.css">
+    <link rel="stylesheet" type="text/css" href="../res/css/student3.css">
 </head>
 <body>
 <div class="main">
@@ -31,15 +23,15 @@
         <div class="login-regist">
             <div class="login-regist-item" id="login">登录<br/>Login</div>
             <div class="login-regist-item" id="regist">注册<br/>Regist</div>
-            <div class="user">
-                <img class="user_head" src='./images/1.png' >
+            <%--<div class="user">
+                <img class="user_head" src='../res/img/1.png' >
                 <div class="user_name">albert </div>
-            </div>
-            <div class="user_item" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;个人中心</div>
-            <div class="user_item" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首页</div>
-            <div class="user_item" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;教师</div>
-            <div class="user_item" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;语伴</div>
-            <div class="user_item" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;退出</div>
+            </div>--%>
+            <div class="user_item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;个人中心</div>
+            <div class="user_item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首页</div>
+            <div class="user_item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;教师</div>
+            <div class="user_item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;语伴</div>
+            <div class="user_item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;退出</div>
         </div>
         <div class="login-regist-space space-row"></div>
     </div>
@@ -64,7 +56,7 @@
                     <div class="info-st-line info-st-line-wechat">
                         <div class="info-st-line-left">学校</br>School</div>
                         <div class="info-st-line-right">
-                            <input type="text" name="university">
+                            <input type="text" name="university" id="university">
                             <span></span>
                         </div>
                     </div>
@@ -75,15 +67,15 @@
                                 <div class="info-check-box">
                                     <div class="info-checkbox-box info-checkbox-box-week">
                                         <div class="info-check-icon info-check-icon-active">
-                                            <input type="radio" name="gender" value="1" checked="">
+                                            <input type="radio" name="gender" id="gender" value="1" checked="">
                                         </div>
                                         <div class="info-check-label">男 male</div>
                                     </div>
                                     <div class="info-checkbox-box info-checkbox-box-week">
                                         <div class="info-check-icon info-check-icon-inactive">
-                                            <input type="radio" name="gender" value="2">
+                                            <input type="radio" name="gender" id="gender" value="2">
                                         </div>
-                                        <div class="info-check-label">女 female </div>
+                                        <div class="info-check-label">女 female</div>
                                     </div>
                                 </div>
                             </div>
@@ -105,13 +97,13 @@
                                         <div class="info-check-icon info-check-icon-inactive">
                                             <input type="radio" name="partner_gender" value="2">
                                         </div>
-                                        <div class="info-check-label">女 female </div>
+                                        <div class="info-check-label">女 female</div>
                                     </div>
                                     <div class="info-checkbox-box info-checkbox-box-week">
                                         <div class="info-check-icon info-check-icon-inactive">
                                             <input type="radio" name="partner_gender" value="3">
                                         </div>
-                                        <div class="info-check-label">不限 Both </div>
+                                        <div class="info-check-label">不限 Both</div>
                                     </div>
                                 </div>
                             </div>
@@ -130,7 +122,7 @@
                                     </div>
                                     <div class="info-checkbox-box info-checkbox-box-week">
                                         <div class="info-check-icon info-check-icon-inactive">
-                                            <input type="radio" name="student" value="1">
+                                            <input type="radio" name="student" value="2">
                                         </div>
                                         <div class="info-check-label">否 No</div>
                                     </div>
@@ -153,25 +145,25 @@
                                         <div class="info-check-icon info-check-icon-inactive">
                                             <input type="radio" name="firstLanguage" value="2">
                                         </div>
-                                        <div class="info-check-label">英语 English </div>
+                                        <div class="info-check-label">英语 English</div>
                                     </div>
                                     <div class="info-checkbox-box info-checkbox-box-week">
                                         <div class="info-check-icon info-check-icon-inactive">
                                             <input type="radio" name="firstLanguage" value="3">
                                         </div>
-                                        <div class="info-check-label">俄语  Russian</div>
+                                        <div class="info-check-label">俄语 Russian</div>
                                     </div>
                                     <div class="info-checkbox-box info-checkbox-box-week">
                                         <div class="info-check-icon info-check-icon-inactive">
                                             <input type="radio" name="firstLanguage" value="4">
                                         </div>
-                                        <div class="info-check-label">韩语  Korea</div>
+                                        <div class="info-check-label">韩语 Korea</div>
                                     </div>
                                     <div class="info-checkbox-box info-checkbox-box-week">
                                         <div class="info-check-icon info-check-icon-inactive">
-                                            <input type="radio" name="firstLanguage" value="4">
+                                            <input type="radio" name="firstLanguage" value="5">
                                         </div>
-                                        <div class="info-check-label">日语  Japanese</div>
+                                        <div class="info-check-label">日语 Japanese</div>
                                     </div>
                                 </div>
                             </div>
@@ -194,25 +186,25 @@
                                             <div class="info-check-icon info-check-icon-inactive">
                                                 <input type="radio" name="secondLanguage" value="2">
                                             </div>
-                                            <div class="info-check-label">英语 English </div>
+                                            <div class="info-check-label">英语 English</div>
                                         </div>
                                         <div class="info-checkbox-box info-checkbox-box-week">
                                             <div class="info-check-icon info-check-icon-inactive">
                                                 <input type="radio" name="secondLanguage" value="3">
                                             </div>
-                                            <div class="info-check-label">俄语  Russian</div>
+                                            <div class="info-check-label">俄语 Russian</div>
                                         </div>
                                         <div class="info-checkbox-box info-checkbox-box-week">
                                             <div class="info-check-icon info-check-icon-inactive">
                                                 <input type="radio" name="secondLanguage" value="4">
                                             </div>
-                                            <div class="info-check-label">韩语  Korea</div>
+                                            <div class="info-check-label">韩语 Korea</div>
                                         </div>
                                         <div class="info-checkbox-box info-checkbox-box-week">
                                             <div class="info-check-icon info-check-icon-inactive">
-                                                <input type="radio" name="secondLanguage" value="4">
+                                                <input type="radio" name="secondLanguage" value="5">
                                             </div>
-                                            <div class="info-check-label">日语  Japanese</div>
+                                            <div class="info-check-label">日语 Japanese</div>
                                         </div>
                                     </div>
                                 </div>
@@ -224,23 +216,54 @@
                         <div class="info-st-line-left">自我介绍</br>Self Introduce</div>
                         <div class="info-st-line-right">
                             <div class="info-st-right-up">
-                                <textarea name="selfIntro"></textarea>
+                                <textarea name="selfIntro" id="selfIntro"></textarea>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="info-commit" onclick="submit()">Finish</div>
+        </form>
     </div>
 </div>
-</div>
 </body>
-<script type="text/javascript" src="./js/jquery-3.2.0.min.js"></script>
-<script type="text/javascript" src="./js/header.js"></script>
-<script type="text/javascript" src="./js/student3.js"></script>
+<script type="text/javascript" src="../res/js/jquery-3.2.0.min.js"></script>
+<script type="text/javascript" src="../res/js/header.js"></script>
+<script type="text/javascript" src="../res/js/student3.js"></script>
 <script type="text/javascript">
-    function submit(){
-        document.getElementById("partner-info").submit();
+    function submit() {
+        //document.getElementById("partner-info").submit();
+        var university = $("#university").val();
+        var sex = $('input[name="gender"]:checked').val();
+        var psex = $('input[name="partner_gender"]:checked').val();
+        var firstL = $('input[name="firstLanguage"]:checked').val();
+        var secondL = $('input[name="secondLanguage"]:checked').val();
+        var isStudent = $('input[name="student"]:checked').val();
+        var selfIntro = $("#selfIntro").val();
+        $.ajax({
+            type: "post",//请求方式
+            contentType: 'application/x-www-form-urlencoded',
+            url: "/student_register_chare",
+            timeout: 800000,//超时时间：800秒
+            dataType: "json",
+            data: {
+                "university": university,
+                "sex": sex,
+                "psex": psex,
+                "firstL": firstL,
+                "secondL": secondL,
+                "selfIntro": selfIntro,
+                "isStudent":isStudent
+            },
+            //请求成功后的回调函数 data为json格式
+            success: function (data) {
+                alert("ok");
+                //window.location.href = "/teacher_register3";
+            },
+            error: function () {
+                alert("请求出错！");
+            }
+        });
     }
 </script>
 </html>

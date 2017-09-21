@@ -38,7 +38,7 @@ $(document).ready(function () {
         window.location.href = "signIn.jsp";
     });
     $("#regist").click(function () {
-        window.location.href = "signUp.jsp";
+        window.location.href = "/toSignUp";
     });
 });
 /**

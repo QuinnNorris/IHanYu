@@ -66,7 +66,27 @@ $(document).ready(function(){
             /**
              * 检测email的值是否注册过，如果没有注册过则执行以下代码
              */
-            document.getElementById("account-info").submit();
+            $.ajax({
+                type: "post",//请求方式
+                contentType: 'application/x-www-form-urlencoded',
+                url: "/emailCheck",
+                timeout: 800000,//超时时间：800秒
+                dataType: "json",
+                data: {
+                    "email": email,
+                    "pw": pw
+                },
+                //请求成功后的回调函数 data为json格式
+                success: function (data) {
+                    if (data.errorCode == "true")
+                        window.location.href = "/student_register2";
+                    else
+                        alert("用户邮箱已经注册，请前往登陆");
+                },
+                error: function () {
+                    alert("请求出错！");
+                }
+            });
         }
     });
 });

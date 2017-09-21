@@ -1,11 +1,11 @@
 /*! cropit - v0.5.1 <https://github.com/scottcheng/cropit> */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("jquery"));
+		module.exports = factory(require("../../WEB-INF/js/jquery"));
 	else if(typeof define === 'function' && define.amd)
-		define(["jquery"], factory);
+		define(["../../WEB-INF/js/jquery"], factory);
 	else if(typeof exports === 'object')
-		exports["cropit"] = factory(require("jquery"));
+		exports["cropit"] = factory(require("../../WEB-INF/js/jquery"));
 	else
 		root["cropit"] = factory(root["jQuery"]);
 })(this, function(__WEBPACK_EXTERNAL_MODULE_1__) {

@@ -29,7 +29,7 @@ function mapInit() {
                 ;
             }
             if(status=='complete'){
-                document.getElementById("coordinate").value = result.poiList.pois[0].location.getLng() + "," + result.poiList.pois[0].location.getLat();
+                document.getElementById("coordinate").value = result.poiList.pois[0].location.getLng() + " " + result.poiList.pois[0].location.getLat();
             }
         });  //关键字查询查询
     }

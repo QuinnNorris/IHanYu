@@ -1,6 +1,6 @@
 package com.quinnnorris.ssm.service;
 
-import com.quinnnorris.ssm.bean.UserCustom;
+import com.quinnnorris.ssm.bean.*;
 import com.quinnnorris.ssm.util.BaseJson;
 
 /**
@@ -17,4 +17,14 @@ public interface RegisterService {
     public BaseJson insertUserFromReg(UserCustom userCustom);
 
     public BaseJson findUserByEmail(UserCustom userCustom);
+
+    public BaseJson insertTeacherFromReg(TeacherCustom teacherCustom);
+
+    public BaseJson insertTeaGoodFromReg(String[] goodAt, Tea_goodCustom tea_goodCustom);
+
+    public BaseJson insertTeaTimeFromReg(String[] time, Tea_timeCustom tea_timeCustom);
+
+    public BaseJson insertStudentFromReg(StudentCustom studentCustom);
+
+    public BaseJson insertPartnerFromReg(PartnerCustom partnerCustom);
 }
