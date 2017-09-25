@@ -100,6 +100,7 @@
 <script type="text/javascript" src="../res/js/jquery-3.2.0.min.js"></script>
 <script type="text/javascript" src="../res/js/header.js"></script>
 <script type="text/javascript" src="../res/js/student1.js"></script>
+<script type="text/javascript" src="../res/js/md5.js"></script>
 <script type="text/javascript">
     function previewImage(file)
     {

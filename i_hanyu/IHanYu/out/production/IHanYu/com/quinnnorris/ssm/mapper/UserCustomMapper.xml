@@ -28,7 +28,7 @@
     </insert>
 
     <insert id="insertPartnerFromReg" parameterType="PartnerCustom">
-        INSERT INTO student VALUE (#{id},#{firstL_id},#{secondL_id},#{sex},#{psex},#{selfIntro},#{isStudent},#{university})
+        INSERT INTO partner VALUE (#{id},#{firstL_id},#{secondL_id},#{sex},#{psex},#{selfIntro},#{isStudent},#{university})
     </insert>
 
 </mapper>

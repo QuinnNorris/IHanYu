@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.quinnnorris.ssm.mapper.VisitCustomMapper">
+
+    <select id="selectTeacherGood" parameterType="Tea_goodCustom" resultType="Tea_typeCustom">
+        SELECT type_cn,type_en FROM tea_good,tea_type WHERE tea_good.id = #{id} AND tea_good.goodat = tea_type.id
+    </select>
+
+    <select id="selectTeacherTime" parameterType="Tea_timeCustom" resultType="WeekCustom">
+        SELECT week.week,week.week_en FROM week,tea_time WHERE tea_time.id = #{id} AND tea_time.time = week.id
+    </select>
+
+</mapper>

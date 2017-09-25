@@ -41,7 +41,7 @@
 			<div class="btn-bar-right" id="notonload">
 				<ul>
 					<li class="btn-bar-right-signup"><a href="sign-up.jsp" style="width:80px;text-align:center" >注册<br>sign up</a></li>
-					<li><a href="sign-in.jsp" style="color:rgba(0, 0, 0, 0.3);display:block;width:75px;text-align:center">登录<br>sign in</a></li>
+					<li><a href="../../jsp/sign-in.jsp" style="color:rgba(0, 0, 0, 0.3);display:block;width:75px;text-align:center">登录<br>sign in</a></li>
 				</ul>
 			</div>
 			<div class="btn-bar-right-onload" id="onload">

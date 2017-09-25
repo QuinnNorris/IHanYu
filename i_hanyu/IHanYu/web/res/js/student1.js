@@ -42,8 +42,8 @@ $(document).ready(function(){
     $(".info-commit").click(function(){
         var result="true";
         var email=$("#email").val();
-        var pw=$("#pw").val();
-        var pw_confirm=$("#pw_confirm").val();
+        var pw=hex_md5($("#pw").val());
+        var pw_confirm=hex_md5($("#pw_confirm").val());
         if(!isEmail(email)){
             alert("邮箱格式有误");
             result="false";

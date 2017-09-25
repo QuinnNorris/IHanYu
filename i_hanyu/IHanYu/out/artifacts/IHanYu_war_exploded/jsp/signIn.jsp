@@ -1,13 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>爱汉语</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
-	<link rel="stylesheet" type="text/css" href="./css/sign-in.css">
+	<link rel="stylesheet" type="text/css" href="../res/css/sign-in.css">
 </head>
 <body>
 <div class="main">
@@ -24,10 +23,10 @@
 		<div class="login-regist">
 			<div class="login-regist-item" id="login">登录<br/>Login</div>
 			<div class="login-regist-item" id="regist">注册<br/>Regist</div>
-			<div class="user">
+			<%--<div class="user">
 				<img class="user_head" src='<s:property value="#session.userInfo.userAvatar()"></s:property>' >
 				<div class="user_name"><s:property value="#session.userInfo.userName()"></s:property> </div>
-			</div>
+			</div>--%>
 			<div class="user_item" onclick="changePerson('<s:property value="#session.userInfo.userCenter()"></s:property>')">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;个人中心</div>
 			<div class="user_item" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首页</div>
 			<div class="user_item" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;教师</div>
@@ -61,7 +60,8 @@
 	</div>
 </div>
 </body>
-<script type="text/javascript" src="./js/jquery-3.2.0.min.js"></script>
-<script type="text/javascript" src="./js/header.js"></script>
-<script type="text/javascript" src="./js/sign-in.js"></script>
+<script type="text/javascript" src="../res/js/jquery-3.2.0.min.js"></script>
+<script type="text/javascript" src="../res/js/header.js"></script>
+<script type="text/javascript" src="../res/js/sign-in.js"></script>
+<script type="text/javascript" src="../res/js/md5.js"></script>
 </html>

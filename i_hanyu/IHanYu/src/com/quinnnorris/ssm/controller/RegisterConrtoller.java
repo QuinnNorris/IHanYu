@@ -26,7 +26,7 @@ import java.util.Map;
  * @version: 1.0
  */
 @Controller
-public class LogRegConrtoller {
+public class RegisterConrtoller {
 
 
     @Autowired
@@ -75,7 +75,7 @@ public class LogRegConrtoller {
         String[] loc = coordinate.split(" ");
         UserCustom userCustom = new UserCustom();
         userCustom.setPassword(inReg.get("pw"));
-        userCustom.setEmail("email");
+        userCustom.setEmail(inReg.get("email"));
         userCustom.setRegtime(new Date());
         userCustom.setUsertype(1);
         userCustom.setLati(Double.parseDouble(loc[1]));
@@ -157,7 +157,12 @@ public class LogRegConrtoller {
         return "student1";
     }
 
-    @RequestMapping("/teacher_register3")
+    @RequestMapping("/student_register2")
+    public String registerStudentUser2() {
+        return "student2";
+    }
+
+    @RequestMapping("/student_register3")
     public String registerStudentUser3() {
         return "student3";
     }
@@ -192,7 +197,7 @@ public class LogRegConrtoller {
         String[] loc = inReg.get("coordinate").split(" ");
         UserCustom userCustom = new UserCustom();
         userCustom.setPassword(inReg.get("pw"));
-        userCustom.setEmail("email");
+        userCustom.setEmail(inReg.get("email"));
         userCustom.setRegtime(new Date());
         userCustom.setUsertype(Integer.parseInt(inReg.get("userType")));
         userCustom.setLati(Double.parseDouble(loc[1]));
@@ -218,10 +223,6 @@ public class LogRegConrtoller {
         partnerCustom.setSelfIntro(selfIntro);
         partnerCustom.setUniversity(university);
         BaseJson baseJson2 = registerServiceImpl.insertPartnerFromReg(partnerCustom);
-
-
-
-
 
         return baseJson;
     }

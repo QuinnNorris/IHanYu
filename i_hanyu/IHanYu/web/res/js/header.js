@@ -35,7 +35,7 @@ $(document).ready(function () {
     });
     /*登录与注册页面的跳转*/
     $("#login").click(function () {
-        window.location.href = "signIn.jsp";
+        window.location.href = "/toSignIn";
     });
     $("#regist").click(function () {
         window.location.href = "/toSignUp";
