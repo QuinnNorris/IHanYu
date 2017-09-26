@@ -5,7 +5,7 @@
     <title>ihanyu</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0"/>
-    <link rel="stylesheet" type="text/css" href="../res/css/teacherVisit.css">
+    <link rel="stylesheet" type="text/css" href="../res/css/partnerVisit.css">
 </head>
 <body>
 <div class="main">
@@ -56,7 +56,7 @@
                         </div>
                     </div>
                     <div class="avatar-info-right">
-                        <div class="username"><%=session.getAttribute("username")%></div>
+                        <div class="username">${username}</div>
                     </div>
                 </div>
                 <div class="avatar-extra">
@@ -72,28 +72,16 @@
                         <div class="card-label">个人信息</div>
                         <div class="card-content">
                             <div class="card-item">
-                                <div class="card-item-c">姓名：${username}</div>
-                                <div class="card-item-e">name：${username}</div>
+                                <div class="card-item-c">用户名：${username}</div>
+                                <div class="card-item-e">username：${username}</div>
                             </div>
                             <div class="card-item">
-                                <div class="card-item-c">我擅长于：${good_cn}</div>
-                                <div class="card-item-e">I'm good At：${good_en}</div>
+                                <div class="card-item-c">微信：${wechat}</div>
+                                <div class="card-item-e">Wechat：${wechat}</div>
                             </div>
                             <div class="card-item">
-                                <div class="card-item-c">授课时间：${time_cn}</div>
-                                <div class="card-item-e">Class Name：${time_en}</div>
-                            </div>
-                            <div class="card-item">
-                                <div class="card-item-c">手机：${wechat}</div>
-                                <div class="card-item-e">Tel：${wechat}</div>
-                            </div>
-                            <div class="card-item">
-                                <div class="card-item-c">课酬：${payment}</div>
-                                <div class="card-item-e">payment：${payment}</div>
-                            </div>
-                            <div class="card-item">
-                                <div class="card-item-c">地点：${location}</div>
-                                <div class="card-item-e">location：${location}</div>
+                                <div class="card-item-c">国家：${coun_cn} </div>
+                                <div class="card-item-e">country：${coun_en}</div>
                             </div>
                         </div>
                     </div>
@@ -109,28 +97,16 @@
                         <div class="card-label">个人信息</div>
                         <div class="card-content">
                             <div class="card-item">
-                                <div class="card-item-c">姓名：${username}</div>
-                                <div class="card-item-e">name： ${username}</div>
+                                <div class="card-item-c">用户名：${username}</div>
+                                <div class="card-item-e">username：${username}</div>
                             </div>
                             <div class="card-item">
-                                <div class="card-item-c">我擅长于：${good_cn}</div>
-                                <div class="card-item-e">I'm good At：${good_en}</div>
+                                <div class="card-item-c">微信：${wechat}</div>
+                                <div class="card-item-e">Wechat：${wechat}</div>
                             </div>
                             <div class="card-item">
-                                <div class="card-item-c">授课时间：${time_cn}</div>
-                                <div class="card-item-e">Class Name：${time_en}</div>
-                            </div>
-                            <div class="card-item">
-                                <div class="card-item-c">手机：${wechat}</div>
-                                <div class="card-item-e">Tel：${wechat}</div>
-                            </div>
-                            <div class="card-item">
-                                <div class="card-item-c">课酬：${payment}</div>
-                                <div class="card-item-e">payment：${payment}</div>
-                            </div>
-                            <div class="card-item">
-                                <div class="card-item-c">地点：${location}</div>
-                                <div class="card-item-e">location：${location}</div>
+                                <div class="card-item-c">国家：${coun_cn} </div>
+                                <div class="card-item-e">country：${coun_en}</div>
                             </div>
                         </div>
                     </div>
@@ -140,23 +116,15 @@
                             <div class="map" id="AMapMobile"></div>
                         </div>
                     </div>
+
                     <div class="card intro-self">
-                        <div class="card-label">教学特点</div>
+                        <%--<div class="card-label">自我介绍</div>
                         <div class="card-content">
                             <div class="card-item">
-                                <div class="card-item-c">${style} </div>
+                                <div class="card-item-c"><s:property value="student.getSelfIntro()"></s:property></div>
                                 <div class="card-item-e"></div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="card intro-self">
-                        <div class="card-label">教学经历</div>
-                        <div class="card-content">
-                            <div class="card-item">
-                                <div class="card-item-c">${experience} </div>
-                                <div class="card-item-e"></div>
-                            </div>
-                        </div>
+                        </div>--%>
                     </div>
                     <div class="card message">
                         <div class="card-label">留言</div>
@@ -195,7 +163,26 @@
                             </div>
                         </div>
                     </div>
-
+                    <div class="recommend-teacher-list">
+                        <%--<s:iterator begin="0" value="teacherList" id="tl">
+                            <div class="teacher-card" onclick="changeTeacher('visitTeacher.action?id=<s:property value="#tl.getId()"></s:property> ')">
+                                <div class="teacher-avatar">
+                                    <div class="cloth-screen"></div>
+                                    <img src='<s:property value="#tl.userAvatar()"></s:property> '>
+                                </div>
+                                <div class="teacher-info">
+                                    <div class="teacher-name"><s:property value="#tl.getFirstName()"></s:property>老师</div>
+                                    <s:iterator value="goodAt" id="ga" begin="0" status="ga_st">
+                                        <s:if test="#ga_st.index<2">
+                                            <div class="teacher-skill">
+                                                <s:property value="#ga.getEn()"></s:property>
+                                            </div>
+                                        </s:if>
+                                    </s:iterator>
+                                </div>
+                            </div>
+                        </s:iterator>--%>
+                    </div>
                 </div>
             </div>
         </div>
@@ -204,16 +191,16 @@
 </body>
 <script type="text/javascript" src="../res/js/jquery-3.2.0.min.js"></script>
 <script type="text/javascript" src="../res/js/header.js"></script>
-<script type="text/javascript" src="../res/js/teacherVisit.js"></script>
+<script type="text/javascript" src="../res/js/partnerVisit.js"></script>
 <script>
     $(document).ready(function () {
         $(".avatar").css({
-            'background': 'url(<s:property value="teacher.userAvatar()"></s:property>) center center no-repeat',
+            'background': 'url(<%--<s:property value="student.userAvatar()"></s:property--%>>) center center no-repeat',
             'background-size': '90% 90%'
         });
     });
-    /*var lng =*/<%--${teacher.lng}--%>
-    /*var lat =*/<%--${teacher.lat}--%>
+    var lng =${student.lng};
+    var lat =${student.lat};
 </script>
 <script type="text/javascript" src="../res/js/visitMap.js"></script>
 <script src="http://webapi.amap.com/maps?v=1.3&key=dc7c0b9b229db77d6ce083ece94031e4&callback=init"></script>

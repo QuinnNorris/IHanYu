@@ -10,4 +10,16 @@
         SELECT week.week,week.week_en FROM week,tea_time WHERE tea_time.id = #{id} AND tea_time.time = week.id
     </select>
 
+    <select id="selectPartnerById" parameterType="PartnerCustom" resultType="PartnerCustom">
+        SELECT * FROM partner WHERE id = #{id}
+    </select>
+
+    <select id="selectLangById" parameterType="int" resultType="LanguageCustom">
+        SELECT * FROM language WHERE id = #{int}
+    </select>
+
+    <select id="selectCountryById" parameterType="int" resultType="CountryCustom">
+        SELECT * FROM country WHERE id = #{int}
+    </select>
+
 </mapper>

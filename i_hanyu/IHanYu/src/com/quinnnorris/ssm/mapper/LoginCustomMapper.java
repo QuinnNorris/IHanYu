@@ -1,5 +1,6 @@
 package com.quinnnorris.ssm.mapper;
 
+import com.quinnnorris.ssm.bean.PartnerCustom;
 import com.quinnnorris.ssm.bean.StudentCustom;
 import com.quinnnorris.ssm.bean.TeacherCustom;
 import com.quinnnorris.ssm.bean.UserCustom;
@@ -24,4 +25,5 @@ public interface LoginCustomMapper {
     public List<TeacherCustom> selectTeacherById(TeacherCustom teacherCustom);
 
     public List<StudentCustom> selectStudentById(StudentCustom studentCustom);
+
 }

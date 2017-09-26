@@ -9,7 +9,9 @@ import com.quinnnorris.ssm.util.BaseJson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Title: VisitServiceImpl
@@ -56,7 +58,7 @@ public class VisitServiceImpl implements VisitService {
     public BaseJson getTeacherGoodAt(Tea_goodCustom tea_goodCustom) {
         BaseJson baseJson = new BaseJson();
         List<Tea_typeCustom> selectRes = visitCustomMapper.selectTeacherGood(tea_goodCustom);
-        String[] goodAt = {"",""};
+        String[] goodAt = {"", ""};
         for (Tea_typeCustom tea_type : selectRes) {
             if (tea_type != null) {
                 if (tea_type.getType_cn() != null)
@@ -73,7 +75,7 @@ public class VisitServiceImpl implements VisitService {
     public BaseJson getTeacherTime(Tea_timeCustom tea_timeCustom) {
         BaseJson baseJson = new BaseJson();
         List<WeekCustom> selectRes = visitCustomMapper.selectTeacherTime(tea_timeCustom);
-        String[] time =  {"",""};
+        String[] time = {"", ""};
         for (WeekCustom week : selectRes) {
             if (week != null) {
                 if (week.getWeek() != null)
@@ -83,6 +85,46 @@ public class VisitServiceImpl implements VisitService {
             }
         }
         baseJson.setObject(time);
+        return baseJson;
+    }
+
+    @Override
+    public BaseJson getPartnersMessage(PartnerCustom partnerCustom) {
+        BaseJson baseJson = new BaseJson();
+        List<PartnerCustom> selectRes = visitCustomMapper.selectPartnerById(partnerCustom);
+        PartnerCustom custom = selectRes.get(0);
+        if (custom.getSex().equals("1")) {
+            custom.setSex("男");
+            custom.setSex_en("Male");
+        } else {
+            custom.setSex("女");
+            custom.setSex_en("Female");
+        }
+        LanguageCustom languageCustom = visitCustomMapper.selectLangById(custom.getFirstL_id());
+        custom.setFisL(languageCustom.getLanguage());
+        custom.setFisL_en(languageCustom.getLanguage_en());
+        LanguageCustom languageCustom1 = visitCustomMapper.selectLangById(custom.getSecondL_id());
+        custom.setSecL(languageCustom1.getLanguage());
+        custom.setSecL_en(languageCustom1.getLanguage_en());
+        baseJson.setObject(custom);
+        return baseJson;
+    }
+
+    @Override
+    public BaseJson getStudentMessage(StudentCustom studentCustom) {
+        BaseJson baseJson = new BaseJson();
+        List<StudentCustom> selectRes = loginCustomMapper.selectStudentById(studentCustom);
+        StudentCustom custom = selectRes.get(0);
+        CountryCustom countryCustom = visitCustomMapper.selectCountryById(custom.getCountry_id());
+        custom.setCountry_en(countryCustom.getCountry_en());
+        custom.setCountry_cn(countryCustom.getCountry());
+
+        Map<String, Object> map = new HashMap<>();
+        map.put("coun_en", custom.getCountry_en());
+        map.put("coun_cn", custom.getCountry_cn());
+        map.put("wechat", custom.getWechat());
+        map.put("username", custom.getUserName());
+        baseJson.setObject(map);
         return baseJson;
     }
 }

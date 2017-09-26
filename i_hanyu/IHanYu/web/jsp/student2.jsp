@@ -141,31 +141,6 @@
 <script src="http://webapi.amap.com/maps?v=1.3&key=d61e8ab3f329129acd1bce7dbfbfac51&callback=mapInit&plugin=AMap.Autocomplete,AMap.PlaceSearch"></script>
 <script type="text/javascript">
     $(function () {
-//        $('.image-editor').cropit({
-//            exportZoom: 1.5,
-//            imageBackground: true,
-//            imageBackgroundBorderWidth: 50,
-//            imageState: {
-//                //default image url
-//                src: 'http://lorempixel.com/500/400/',
-//            },
-//            smallImage: 'stretch'
-//        });
-//
-//        $('.rotate-cw').click(function() {
-//            $('.image-editor').cropit('rotateCW');
-//        });
-//        $('.rotate-ccw').click(function() {
-//            $('.image-editor').cropit('rotateCCW');
-//        });
-//
-//        $('.info-commit').click(function() {
-//            var imageData = $('.image-editor').cropit('export');
-//            //contains image
-//            //window.open(imageData);
-//            document.getElementById("avatar").value=imageData;
-//            document.getElementById("person-info").submit();
-//        });
         $('.info-commit').click(function () {
             var map = document.getElementById("suggestId").value;
             if (map == null || map == "") {
@@ -176,7 +151,6 @@
                 //contains image
                 //window.open(imageData);
                 document.getElementById("avatar").value = imageData;
-                /*document.getElementById("person-info").submit();*/
 
                 var userName = $("#userName").val();
                 var userType = $('input[name="userType"]:checked').val();
@@ -185,23 +159,34 @@
                 var location = $("#suggestId").val();
                 var coordinate = $("#coordinate").val();
 
+                var formdata = new FormData();
+                formdata.append("imgFile", window.getFiles);
+                formdata.append("userName", userName);
+                formdata.append("location", location);
+                formdata.append("userType", userType);
+                formdata.append("country", country);
+                formdata.append("wechat", wechat);
+                formdata.append("coordinate", coordinate);
+
+                /*document.getElementById("person-info").submit();*/
+
+
+
                 $.ajax({
                     type: "post",//请求方式
-                    contentType: 'application/x-www-form-urlencoded',
+                    /*contentType: 'application/x-www-form-urlencoded',*/
+                    contentType: false,
+                    processData: false,
                     url: "/student_register_name",
                     timeout: 800000,//超时时间：800秒
                     dataType: "json",
-                    data: {
-                        "userName":userName,
-                        "location": location,
-                        "userType":userType,
-                        "country":country,
-                        "wechat": wechat,
-                        "coordinate": coordinate,
-                    },
+                    data: formdata,
                     //请求成功后的回调函数 data为json格式
                     success: function (data) {
-                        window.location.href = "/student_register3";
+                        if (data.errorCode == "0002")
+                            window.location.href = "/student_register3";
+                        else
+                            window.location.href = "studentVisit/" + data.object;
                     },
                     error: function () {
                         alert("请求出错！");
@@ -227,6 +212,7 @@
                 img.src = evt.target.result;
             }
             reader.readAsDataURL(file.files[0]);
+            window.getFiles = file.files[0];
         }
         else {
             var sFilter = 'filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';

@@ -46,6 +46,7 @@ public class LoginController {
             BaseJson baseJson1 = loginServiceImpl.getUserName(userCustom);
             httpSession.setAttribute("email", ((UserCustom) baseJson.getObject()).getEmail());
             httpSession.setAttribute("username",((baseJson1.getObject())));
+            httpSession.setAttribute("headp",((UserCustom)baseJson.getObject()).getHeadp());
             Map<String, String> map = new HashMap<>();
             map.put("usertype", ((UserCustom) baseJson.getObject()).getUsertype() + "");
             map.put("emails", ((UserCustom) baseJson.getObject()).getEmail());

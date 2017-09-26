@@ -43,6 +43,6 @@ function mapInit() {
         });
         map.clearMap();
         map.add(marker);
-        document.getElementById("coordinate").value = lng + "," + lat;
+        document.getElementById("coordinate").value = lng + " " + lat;
     })
 }

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -65,6 +64,55 @@ public class VisitController {
         model.addAllAttributes(map);
 
         return "teacherVisit";
+    }
+
+    @RequestMapping("/partnerVisit/{email:.+}")
+    public String partnerVisitUser(@PathVariable String email, Model model) {
+        UserCustom userCustom = new UserCustom();
+        userCustom.setEmail(email);
+        BaseJson baseJson = visitServiceImpl.serachUserByEmail(userCustom);
+        if (baseJson.getErrorCode().equals("1001"))
+            //找不到该用户，应该跳转到404页面
+            //等前端做出404页面具体再编写
+            return "404";
+        PartnerCustom partnerCustom = new PartnerCustom();
+        partnerCustom.setId((Integer) baseJson.getObject());
+
+        BaseJson baseJson1 = visitServiceImpl.getPartnersMessage(partnerCustom);
+
+        Map<String, Object> map = new HashMap<>();
+        PartnerCustom custom = (PartnerCustom) baseJson1.getObject();
+
+        map.put("university", custom.getUniversity());
+        map.put("firL", custom.getFisL());
+        map.put("firL_en", custom.getFisL_en());
+        map.put("secL", custom.getSecL());
+        map.put("secL_en", custom.getSecL_en());
+        map.put("sex", custom.getSex());
+        map.put("sex_en", custom.getSex_en());
+        map.put("style", custom.getSelfIntro());
+        map.put("self", custom.getSelfIntro());
+        model.addAllAttributes(map);
+
+        return "partnerVisit";
+    }
+
+    @RequestMapping("/studentVisit/{email:.+}")
+    public String studentVisitUser(@PathVariable String email, Model model) {
+        UserCustom userCustom = new UserCustom();
+        userCustom.setEmail(email);
+        BaseJson baseJson = visitServiceImpl.serachUserByEmail(userCustom);
+        if (baseJson.getErrorCode().equals("1001"))
+            //找不到该用户，应该跳转到404页面
+            //等前端做出404页面具体再编写
+            return "404";
+        StudentCustom studentCustom = new StudentCustom();
+        studentCustom.setId((Integer) baseJson.getObject());
+
+        BaseJson baseJson1 = visitServiceImpl.getStudentMessage(studentCustom);
+        model.addAllAttributes((Map<String, Object>) baseJson1.getObject());
+
+        return "studentVisit";
     }
 
 }

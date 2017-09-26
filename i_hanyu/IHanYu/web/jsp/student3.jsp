@@ -257,8 +257,7 @@
             },
             //请求成功后的回调函数 data为json格式
             success: function (data) {
-                alert("ok");
-                //window.location.href = "/teacher_register3";
+                window.location.href = "partnerVisit/" + <%= session.getAttribute("email")%>;
             },
             error: function () {
                 alert("请求出错！");

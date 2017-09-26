@@ -3,7 +3,7 @@
 <mapper namespace="com.quinnnorris.ssm.mapper.UserCustomMapper">
 
     <insert id="insertUserFromReg" useGeneratedKeys="true" keyProperty="id" parameterType="UserCustom">
-        INSERT INTO user (email,password,regtime,lati,longi,usertype) VALUE (#{email},#{password},#{regtime},#{lati},#{longi},#{usertype})
+        INSERT INTO user (email,password,headp,regtime,lati,longi,usertype) VALUE (#{email},#{password},#{headp},#{regtime},#{lati},#{longi},#{usertype})
     </insert>
 
     <insert id="insertTeacherFromReg" parameterType="TeacherCustom">

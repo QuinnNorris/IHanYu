@@ -33,11 +33,11 @@ $(document).ready(function () {
                     }
                     else {
                         switch (data.object.usertype) {
-                            case "student":
-                                window.location.href = "studentVisitSelf.action";
+                            case "2":
+                                window.location.href = "partnerVisit/" + data.object.emails;
                                 break;
-                            case "partner":
-                                window.location.href = "partnerVisitSelf.action";
+                            case "3":
+                                window.location.href = "studentVisit/" + data.object.emails;
                                 break;
                             case "1":
                                 window.location.href = "teacherVisit/" + data.object.emails;

@@ -143,19 +143,24 @@
         var sex = $('input[name="gender"]:checked').val();
         var teachingStyle = $("#teachingStyle").val();
         var teachingExperience = $("#teachingExperience").val();
+
+        var formdata = new FormData();
+        formdata.append("imgFile", window.getFiles);
+        formdata.append("firstName", firstName);
+        formdata.append("secondName", secondName);
+        formdata.append("teachingStyle", teachingStyle);
+        formdata.append("teachingExperience", teachingExperience);
+        formdata.append("sex", sex);
+
         $.ajax({
             type: "post",//请求方式
-            contentType: 'application/x-www-form-urlencoded',
+            contentType:false,
+            processData:false,
+            /*contentType: 'application/x-www-form-urlencoded',*/
             url: "/teacher_register_name",
             timeout: 800000,//超时时间：800秒
             dataType: "json",
-            data: {
-                "firstName": firstName,
-                "secondName": secondName,
-                "sex": sex,
-                "teachingStyle": teachingStyle,
-                "teachingExperience": teachingExperience
-            },
+            data: formdata,
             //请求成功后的回调函数 data为json格式
             success: function (data) {
                 if (data.errorCode == "true")
@@ -185,6 +190,7 @@
                 img.src = evt.target.result;
             }
             reader.readAsDataURL(file.files[0]);
+            window.getFiles = file.files[0];
         }
         else {
             var sFilter = 'filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
@@ -192,37 +198,6 @@
             var src = document.selection.createRange().text;
             div.innerHTML = '<img id=imghead>';
             var img = document.getElementById('imghead');
-            img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
-            var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
-            status = ('rect:' + rect.top + ',' + rect.left + ',' + rect.width + ',' + rect.height);
-            div.innerHTML = "<div id=divhead style='width:" + rect.width + "px;height:" + rect.height + "px;margin-top:" + rect.top + "px;" + sFilter + src + "\"'></div>";
-        }
-    }
-
-    function previewImage1(file) {
-        var MAXWIDTH = 260;
-        var MAXHEIGHT = 180;
-        var div = document.getElementById('preview1');
-        if (file.files && file.files[0]) {
-            div.innerHTML = '<img id=imghead1>';
-            var img = document.getElementById('imghead1');
-            img.onload = function () {
-                var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
-                img.width = rect.width;
-                img.height = rect.height;
-            }
-            var reader = new FileReader();
-            reader.onload = function (evt) {
-                img.src = evt.target.result;
-            }
-            reader.readAsDataURL(file.files[0]);
-        }
-        else {
-            var sFilter = 'filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
-            file.select();
-            var src = document.selection.createRange().text;
-            div.innerHTML = '<img id=imghead1>';
-            var img = document.getElementById('imghead1');
             img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
             var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
             status = ('rect:' + rect.top + ',' + rect.left + ',' + rect.width + ',' + rect.height);

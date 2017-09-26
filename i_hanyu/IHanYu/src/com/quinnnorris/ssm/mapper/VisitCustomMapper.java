@@ -1,9 +1,6 @@
 package com.quinnnorris.ssm.mapper;
 
-import com.quinnnorris.ssm.bean.Tea_goodCustom;
-import com.quinnnorris.ssm.bean.Tea_timeCustom;
-import com.quinnnorris.ssm.bean.Tea_typeCustom;
-import com.quinnnorris.ssm.bean.WeekCustom;
+import com.quinnnorris.ssm.bean.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -23,4 +20,10 @@ public interface VisitCustomMapper {
     public List<Tea_typeCustom> selectTeacherGood(Tea_goodCustom tea_goodCustom);
 
     public List<WeekCustom> selectTeacherTime(Tea_timeCustom tea_timeCustom);
+
+    public List<PartnerCustom> selectPartnerById(PartnerCustom partnerCustom);
+
+    public LanguageCustom selectLangById(int firstL_id);
+
+    public CountryCustom selectCountryById(int country_id);
 }

@@ -23,7 +23,7 @@
             <div class="login-regist-item" id="login">登录<br/>Login</div>
             <div class="login-regist-item" id="regist">注册<br/>Regist</div>
             <div class="user">
-                <img class="user_head" src=''>
+                <img class="user_head" src='<%=session.getAttribute("headp")%>'>
                 <div class="user_name"><%=session.getAttribute("username")%>
                 </div>
             </div>

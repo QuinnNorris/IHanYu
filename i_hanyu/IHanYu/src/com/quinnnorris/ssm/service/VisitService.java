@@ -1,9 +1,6 @@
 package com.quinnnorris.ssm.service;
 
-import com.quinnnorris.ssm.bean.Tea_goodCustom;
-import com.quinnnorris.ssm.bean.Tea_timeCustom;
-import com.quinnnorris.ssm.bean.TeacherCustom;
-import com.quinnnorris.ssm.bean.UserCustom;
+import com.quinnnorris.ssm.bean.*;
 import com.quinnnorris.ssm.util.BaseJson;
 
 /**
@@ -24,5 +21,9 @@ public interface VisitService {
     public BaseJson getTeacherGoodAt(Tea_goodCustom tea_goodCustom);
 
     public BaseJson getTeacherTime(Tea_timeCustom tea_timeCustom);
+
+    public BaseJson getPartnersMessage(PartnerCustom partnerCustom);
+
+    public BaseJson getStudentMessage(StudentCustom studentCustom);
 }
 

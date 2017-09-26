@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -51,8 +53,11 @@ public class RegisterConrtoller {
     @ResponseBody
     public BaseJson registerUserName(@RequestParam String firstName, @RequestParam String secondName,
                                      @RequestParam String sex, @RequestParam String teachingStyle,
-                                     @RequestParam String teachingExperience, HttpSession httpSession) {
+                                     @RequestParam String teachingExperience, @RequestParam("imgFile") MultipartFile file,
+                                     HttpSession httpSession) {
         Map<String, String> inReg = (Map<String, String>) httpSession.getAttribute("inReg");
+        String fileStr = insertHeadp(file, httpSession);
+        inReg.put("headp", fileStr);
         inReg.put("firstname", firstName);
         inReg.put("lastname", secondName);
         inReg.put("sex", sex);
@@ -78,6 +83,7 @@ public class RegisterConrtoller {
         userCustom.setEmail(inReg.get("email"));
         userCustom.setRegtime(new Date());
         userCustom.setUsertype(1);
+        userCustom.setHeadp(inReg.get("headp"));
         userCustom.setLati(Double.parseDouble(loc[1]));
         userCustom.setLongi(Double.parseDouble(loc[0]));
         BaseJson baseJson = registerServiceImpl.insertUserFromReg(userCustom);
@@ -107,6 +113,10 @@ public class RegisterConrtoller {
         tea_timeCustom.setId((Integer) baseJson.getObject());
         BaseJson baseJson3 = registerServiceImpl.insertTeaTimeFromReg(time, tea_timeCustom);
 
+        httpSession.setAttribute("email", inReg.get("email"));
+        httpSession.setAttribute("username", inReg.get("firstname") + inReg.get("lastname"));
+        httpSession.setAttribute("headp", inReg.get("headp"));
+        baseJson.setObject(inReg.get("email"));
         return baseJson;
     }
 
@@ -171,17 +181,47 @@ public class RegisterConrtoller {
     @ResponseBody
     public BaseJson registerStudentUserName(@RequestParam String userName, @RequestParam String location,
                                             @RequestParam String userType, @RequestParam String country,
-                                            @RequestParam String wechat, @RequestParam String coordinate, HttpSession httpSession) {
+                                            @RequestParam String wechat, @RequestParam String coordinate,
+                                            @RequestParam("imgFile") MultipartFile file, HttpSession httpSession) {
+        BaseJson baseJson = new BaseJson();
         Map<String, String> inReg = (Map<String, String>) httpSession.getAttribute("inReg");
+        String fileStr = insertHeadp(file, httpSession);
         inReg.put("userName", userName);
         inReg.put("location", location);
         inReg.put("userType", userType);
         inReg.put("country", country);
         inReg.put("wechat", wechat);
         inReg.put("coordinate", coordinate);
+        inReg.put("headp", fileStr);
         httpSession.setAttribute("inReg", inReg);
-        BaseJson baseJson = new BaseJson();
-        baseJson.setErrorCode("true");
+        if (userType.equals("2"))
+            baseJson.setErrorCode("0002");
+        else {
+            String[] loc = inReg.get("coordinate").split(" ");
+            UserCustom userCustom = new UserCustom();
+            userCustom.setPassword(inReg.get("pw"));
+            userCustom.setEmail(inReg.get("email"));
+            userCustom.setRegtime(new Date());
+            userCustom.setUsertype(Integer.parseInt(inReg.get("userType")));
+            userCustom.setHeadp(fileStr);
+            userCustom.setLati(Double.parseDouble(loc[1]));
+            userCustom.setLongi(Double.parseDouble(loc[0]));
+            BaseJson baseJson2 = registerServiceImpl.insertUserFromReg(userCustom);
+
+            //更新student表信息
+            StudentCustom studentCustom = new StudentCustom();
+            studentCustom.setId((Integer) baseJson2.getObject());
+            studentCustom.setUserName(inReg.get("userName"));
+            studentCustom.setCountry_id(Integer.parseInt(inReg.get("country")));
+            studentCustom.setWechat(inReg.get("wechat"));
+            BaseJson baseJson1 = registerServiceImpl.insertStudentFromReg(studentCustom);
+            baseJson.setErrorCode("1003");
+            baseJson.setObject(inReg.get("email"));
+
+            httpSession.setAttribute("email", inReg.get("email"));
+            httpSession.setAttribute("username", userName);
+            httpSession.setAttribute("headp", fileStr);
+        }
         return baseJson;
     }
 
@@ -214,7 +254,7 @@ public class RegisterConrtoller {
 
         //更新partner表信息
         PartnerCustom partnerCustom = new PartnerCustom();
-        partnerCustom.setId((Integer)baseJson.getObject());
+        partnerCustom.setId((Integer) baseJson.getObject());
         partnerCustom.setFirstL_id(Integer.parseInt(firstL));
         partnerCustom.setSecondL_id(Integer.parseInt(secondL));
         partnerCustom.setIsStudent(Integer.parseInt(isStudent));
@@ -224,8 +264,26 @@ public class RegisterConrtoller {
         partnerCustom.setUniversity(university);
         BaseJson baseJson2 = registerServiceImpl.insertPartnerFromReg(partnerCustom);
 
+        httpSession.setAttribute("email", inReg.get("email"));
+        httpSession.setAttribute("username", inReg.get("userName"));
+
         return baseJson;
     }
 
+    private String insertHeadp(MultipartFile file, HttpSession httpSession) {
+        String fileStr = "";
+        if (!file.isEmpty()) {
+            try {
+                String filePath = httpSession.getServletContext().getRealPath("/") + "headPortrait";
+                String fileName = file.getOriginalFilename();
+                File targetFile = new File(filePath, fileName);
+                fileStr = filePath + fileName;
+                file.transferTo(targetFile);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return fileStr;
+    }
 
 }
