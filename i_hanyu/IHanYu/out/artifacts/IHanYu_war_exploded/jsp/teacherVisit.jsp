@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div class="user_item"
-                 onclick="changePerson('<%--<s:property value="#session.userInfo.userCenter()"></s:property>--%>')">
+                 onclick="changePerson('<%=session.getAttribute("usertype")%>','<%=session.getAttribute("email")%>')">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;个人中心
             </div>
             <div class="user_item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首页</div>
@@ -44,19 +44,20 @@
                 <div class="avatar-block"></div>
                 <div class="avatar-info">
                     <div class="avatar-info-left">
-                        <div class="avatar"></div>
-                        <div class="avatar-info-items">
-                            <div class="avatar-info-item">
-                                <span class="avatar-info-num">0</span></br><span class="avatar-info-name">点赞</span>
-                            </div><!--
+                        <div class="avatar"><img src="${headp}" height=159" width="159"/></div>
+                    </div>
+                    <div class="avatar-info-items">
+                        <div class="avatar-info-item">
+                            <span class="avatar-info-num">0</span></br><span class="avatar-info-name">点赞</span>
+                        </div><!--
 							-->
-                            <div class="avatar-info-item">
-                                <span class="avatar-info-num">0</span></br><span class="avatar-info-name">关注</span>
-                            </div>
+                        <div class="avatar-info-item">
+                            <span class="avatar-info-num">0</span></br><span class="avatar-info-name">关注</span>
                         </div>
                     </div>
-                    <div class="avatar-info-right">
-                        <div class="username"><%=session.getAttribute("username")%></div>
+                </div>
+                <div class="avatar-info-right">
+                    <div class="username">${username}
                     </div>
                 </div>
                 <div class="avatar-extra">

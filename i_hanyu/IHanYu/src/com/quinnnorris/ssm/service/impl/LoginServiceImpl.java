@@ -4,6 +4,7 @@ import com.quinnnorris.ssm.bean.StudentCustom;
 import com.quinnnorris.ssm.bean.TeacherCustom;
 import com.quinnnorris.ssm.bean.UserCustom;
 import com.quinnnorris.ssm.mapper.LoginCustomMapper;
+import com.quinnnorris.ssm.mapper.UserCustomMapper;
 import com.quinnnorris.ssm.service.LoginService;
 import com.quinnnorris.ssm.util.BaseJson;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,9 @@ public class LoginServiceImpl implements LoginService {
     @Autowired
     LoginCustomMapper loginCustomMapper;
 
+    @Autowired
+    UserCustomMapper userCustomMapper;
+
     @Override
     public BaseJson signInUser(UserCustom userCustom) {
         BaseJson baseJson = new BaseJson();
@@ -41,7 +45,7 @@ public class LoginServiceImpl implements LoginService {
     @Override
     public BaseJson getUserName(UserCustom userCustom) {
         BaseJson baseJson = new BaseJson();
-        List<UserCustom> selectRes = loginCustomMapper.selectUserByEmail(userCustom);
+        List<UserCustom> selectRes = userCustomMapper.selectUserByEmail(userCustom);
         UserCustom custom = new UserCustom();
         if (selectRes.get(0).getUsertype() == 1) {
             TeacherCustom teacherCustom = new TeacherCustom();

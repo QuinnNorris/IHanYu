@@ -24,8 +24,8 @@
 			<div class="login-regist-item" id="login">登录<br/>Login</div>
 			<div class="login-regist-item" id="regist">注册<br/>Regist</div>
 			<div class="user">
-				<img class="user_head" src='../res/img/1.png' >
-				<div class="user_name">albert </div>
+				<img class="user_head" src='<%=session.getAttribute("headp")%>'>
+				<div class="user_name"><%=session.getAttribute("username")%></div>
 			</div>
 			<div class="user_item" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;个人中心</div>
 			<div class="user_item" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首页</div>
@@ -156,69 +156,5 @@
         param.top = Math.round((maxHeight - param.height) / 2);
         return param;
     }
-//    var map = new BMap.Map("l-map");
-//    map.centerAndZoom("上海", 12);
-//    map.enableScrollWheelZoom();    //启用滚轮放大缩小，默认禁用
-//    map.enableContinuousZoom();    //启用地图惯性拖拽，默认禁用
-//
-//    map.addControl(new BMap.NavigationControl());  //添加默认缩放平移控件
-//    map.addControl(new BMap.OverviewMapControl()); //添加默认缩略地图控件
-//    // map.addControl(new BMap.OverviewMapControl({ isOpen: true, anchor: BMAP_ANCHOR_BOTTOM_RIGHT }));   //右下角，打开
-//
-//    var localSearch = new BMap.LocalSearch(map);
-//    localSearch.enableAutoViewport(); //允许自动调节窗体大小
-//    var ac = new BMap.Autocomplete(    //建立一个自动完成的对象
-//        {"input" : "suggestId"
-//            ,"location" : map
-//        });
-//    function searchByStationName() {
-//        map.clearOverlays();//清空原来的标注
-//        var keyword = document.getElementById("suggestId").value;
-//        localSearch.setSearchCompleteCallback(function (searchResult) {
-//            var poi = searchResult.getPoi(0);
-//            document.getElementById("coordinate").value = poi.point.lng + "," + poi.point.lat;
-//            map.centerAndZoom(poi.point, 13);
-//            var marker = new BMap.Marker(new BMap.Point(poi.point.lng, poi.point.lat));  // 创建标注，为要查询的地方对应的经纬度
-//            map.addOverlay(marker);
-//            var content = document.getElementById("suggestId").value + "<br/><br/>经度：" + poi.point.lng + "<br/>纬度：" + poi.point.lat;
-//            var infoWindow = new BMap.InfoWindow("<p style='font-size:14px;'>" + content + "</p>");
-//            marker.addEventListener("click", function () { this.openInfoWindow(infoWindow); });
-//            // marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
-//        });
-//        localSearch.search(keyword);
-//    }
-//    function setMark(e){
-//        map.clearOverlays();
-//        var marker = new BMap.Marker(e.point);
-//        map.addOverlay(marker);
-//        document.getElementById("coordinate").value = e.point.lng + "," + e.point.lat;
-//    }
-//    map.addEventListener("click", setMark);
-//    $(function() {
-//        $('.image-editor').cropit({
-//            exportZoom: 1.5,
-//            imageBackground: true,
-//            imageBackgroundBorderWidth: 50,
-//            imageState: {
-//                //default image url
-//                src: 'http://lorempixel.com/500/400/',
-//            },
-//            smallImage: 'stretch'
-//        });
-//
-//        $('.rotate-cw').click(function() {
-//            $('.image-editor').cropit('rotateCW');
-//        });
-//        $('.rotate-ccw').click(function() {
-//            $('.image-editor').cropit('rotateCCW');
-//        });
-//
-//        $('.finished').click(function() {
-//            var imageData = $('.image-editor').cropit('export');
-//            //contains image
-//            //window.open(imageData);
-//            document.getElementById("avatar").value=imageData;
-//        });
-//    });
 </script>
 </html>

@@ -28,8 +28,7 @@
                 </div>
             </div>
             <div class="user_item"
-                 onclick="changePerson('<%--<s:property value="#session.userInfo.userCenter()"></s:property>--%>')">
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;个人中心
+                 onclick="changePerson('<%=session.getAttribute("usertype")%>','<%=session.getAttribute("email")%>')">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;个人中心
             </div>
             <div class="user_item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首页</div>
             <div class="user_item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;教师</div>
@@ -44,7 +43,7 @@
                 <div class="avatar-block"></div>
                 <div class="avatar-info">
                     <div class="avatar-info-left">
-                        <div class="avatar"></div>
+                        <div class="avatar"><img src="${headp}" height=159" width="159"/></div>
                         <div class="avatar-info-items">
                             <div class="avatar-info-item">
                                 <span class="avatar-info-num">0</span></br><span class="avatar-info-name">点赞</span>
@@ -56,7 +55,7 @@
                         </div>
                     </div>
                     <div class="avatar-info-right">
-                        <div class="username"><%=session.getAttribute("username")%>
+                        <div class="username">${username}
                         </div>
                     </div>
                 </div>
@@ -73,9 +72,9 @@
                         <div class="card-label">个人信息</div>
                         <div class="card-content">
                             <div class="card-item">
-                                <div class="card-item-c">姓名：<%=session.getAttribute("username")%>
+                                <div class="card-item-c">姓名：${username}
                                 </div>
-                                <div class="card-item-e">name： <%=session.getAttribute("username")%>
+                                <div class="card-item-e">name： ${username}
                                 </div>
                             </div>
                             <div class="card-item">

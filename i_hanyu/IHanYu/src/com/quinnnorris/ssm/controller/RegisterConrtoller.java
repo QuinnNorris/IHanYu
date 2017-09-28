@@ -3,6 +3,7 @@ package com.quinnnorris.ssm.controller;
 import com.quinnnorris.ssm.bean.*;
 import com.quinnnorris.ssm.service.impl.RegisterServiceImpl;
 import com.quinnnorris.ssm.util.BaseJson;
+import com.quinnnorris.ssm.util.HeadPService;
 import com.quinnnorris.ssm.util.SessionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -56,7 +57,7 @@ public class RegisterConrtoller {
                                      @RequestParam String teachingExperience, @RequestParam("imgFile") MultipartFile file,
                                      HttpSession httpSession) {
         Map<String, String> inReg = (Map<String, String>) httpSession.getAttribute("inReg");
-        String fileStr = insertHeadp(file, httpSession);
+        String fileStr = HeadPService.insertHeadp(file);
         inReg.put("headp", fileStr);
         inReg.put("firstname", firstName);
         inReg.put("lastname", secondName);
@@ -116,6 +117,7 @@ public class RegisterConrtoller {
         httpSession.setAttribute("email", inReg.get("email"));
         httpSession.setAttribute("username", inReg.get("firstname") + inReg.get("lastname"));
         httpSession.setAttribute("headp", inReg.get("headp"));
+        httpSession.setAttribute("usertype","1");
         baseJson.setObject(inReg.get("email"));
         return baseJson;
     }
@@ -128,18 +130,6 @@ public class RegisterConrtoller {
     @RequestMapping("/teacher_register3")
     public String registerUser3() {
         return "teacher3";
-    }
-
-    @RequestMapping(value = "/getLoginState", method = RequestMethod.POST)
-    @ResponseBody
-    public BaseJson getLoginState(HttpSession httpSession) {
-        String email = (String) httpSession.getAttribute("email");
-        BaseJson baseJson = new BaseJson();
-        if (email != null && email != "")
-            baseJson.setErrorCode("true");
-        else
-            baseJson.setErrorCode("false");
-        return baseJson;
     }
 
     @RequestMapping(value = "/emailCheck", method = RequestMethod.POST)
@@ -185,7 +175,7 @@ public class RegisterConrtoller {
                                             @RequestParam("imgFile") MultipartFile file, HttpSession httpSession) {
         BaseJson baseJson = new BaseJson();
         Map<String, String> inReg = (Map<String, String>) httpSession.getAttribute("inReg");
-        String fileStr = insertHeadp(file, httpSession);
+        String fileStr = HeadPService.insertHeadp(file);
         inReg.put("userName", userName);
         inReg.put("location", location);
         inReg.put("userType", userType);
@@ -221,6 +211,7 @@ public class RegisterConrtoller {
             httpSession.setAttribute("email", inReg.get("email"));
             httpSession.setAttribute("username", userName);
             httpSession.setAttribute("headp", fileStr);
+            httpSession.setAttribute("usertype","3");
         }
         return baseJson;
     }
@@ -266,24 +257,11 @@ public class RegisterConrtoller {
 
         httpSession.setAttribute("email", inReg.get("email"));
         httpSession.setAttribute("username", inReg.get("userName"));
+        httpSession.setAttribute("headp", inReg.get("headp"));
+        httpSession.setAttribute("usertype","2");
 
+        baseJson.setObject(inReg.get("email"));
         return baseJson;
-    }
-
-    private String insertHeadp(MultipartFile file, HttpSession httpSession) {
-        String fileStr = "";
-        if (!file.isEmpty()) {
-            try {
-                String filePath = httpSession.getServletContext().getRealPath("/") + "headPortrait";
-                String fileName = file.getOriginalFilename();
-                File targetFile = new File(filePath, fileName);
-                fileStr = filePath + fileName;
-                file.transferTo(targetFile);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return fileStr;
     }
 
 }

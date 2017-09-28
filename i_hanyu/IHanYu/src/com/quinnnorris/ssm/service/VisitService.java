@@ -25,5 +25,7 @@ public interface VisitService {
     public BaseJson getPartnersMessage(PartnerCustom partnerCustom);
 
     public BaseJson getStudentMessage(StudentCustom studentCustom);
+
+    public BaseJson getUserMes(UserCustom userCustom);
 }
 

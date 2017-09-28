@@ -47,7 +47,7 @@ body,html{margin:0;padding:0;width:100%;height:100%;}
     display: block;
     width: 5em;
     height: 5em;
-    background: url(../images/ihanyulogo1.png) no-repeat;
+    background: url(../img/ihanyulogo1.png) no-repeat;
     background-size: 100% 100%;
 }
 .items{
@@ -173,7 +173,7 @@ body,html{margin:0;padding:0;width:100%;height:100%;}
     width: 1em;
     height: 1em;
     background-size: 100% 100%;
-    background-image: url("../images/more.png");
+    background-image: url("../img/more.png");
 }
 .title-card{
     font-weight: bold;
@@ -214,7 +214,7 @@ body,html{margin:0;padding:0;width:100%;height:100%;}
     height: 1em;
     display: inline-block;
     vertical-align: middle;
-    background: url("../images/clear.png") center center no-repeat;
+    background: url("../img/clear.png") center center no-repeat;
     background-size: 100% 100%;
 }
 /*搜索框*/
@@ -238,7 +238,7 @@ body,html{margin:0;padding:0;width:100%;height:100%;}
     vertical-align: middle;
     height: 1.2em;
     width: 1.2em;
-    background: url("../images/right-arrow.png") center center no-repeat;
+    background: url("../img/right-arrow.png") center center no-repeat;
     background-size: 100% 100%;
 }
 .text-search{
@@ -254,7 +254,7 @@ body,html{margin:0;padding:0;width:100%;height:100%;}
     display: inline-block;
     height: 1.2em;
     width: 1.2em;
-    background: url("../images/search.png") center center no-repeat;
+    background: url("../img/search.png") center center no-repeat;
     background-size: 90% 90%;
     vertical-align: top;
     cursor: pointer;
@@ -413,7 +413,7 @@ body,html{margin:0;padding:0;width:100%;height:100%;}
 .info-card-head{
     width: 100%;
     height: 6em;
-    background: radial-gradient(transparent 70%,white 0) bottom center no-repeat , url("../images/1.png") bottom center no-repeat;
+    background: radial-gradient(transparent 70%,white 0) bottom center no-repeat , url("../img/1.png") bottom center no-repeat;
     background-size: 5em 5em,5em 5em;
 }
 .info-card-distance{
@@ -476,7 +476,7 @@ body,html{margin:0;padding:0;width:100%;height:100%;}
 .right-arrow{
     height: 3vw;
     width: 3vw;
-    background: url("../images/right-arrow1.png") center center no-repeat;
+    background: url("../img/right-arrow1.png") center center no-repeat;
     background-size: 100% 100%;
     cursor: pointer;
 }
@@ -484,7 +484,7 @@ body,html{margin:0;padding:0;width:100%;height:100%;}
     height: 3vw;
     width: 3vw;
     vertical-align: middle;
-    background: url("../images/left-arrow1.png") center center no-repeat;
+    background: url("../img/left-arrow1.png") center center no-repeat;
     background-size: 100% 100%;
     position: relative;
     float: right;

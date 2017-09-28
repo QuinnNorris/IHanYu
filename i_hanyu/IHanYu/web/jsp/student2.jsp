@@ -24,8 +24,8 @@
             <div class="login-regist-item" id="login">登录<br/>Login</div>
             <div class="login-regist-item" id="regist">注册<br/>Regist</div>
             <div class="user">
-                <img class="user_head" src='../res/img/1.png'>
-                <div class="user_name">albert</div>
+                <img class="user_head" src='<%=session.getAttribute("headp")%>'>
+                <div class="user_name"><%=session.getAttribute("username")%></div>
             </div>
             <div class="user_item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;个人中心</div>
             <div class="user_item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首页</div>

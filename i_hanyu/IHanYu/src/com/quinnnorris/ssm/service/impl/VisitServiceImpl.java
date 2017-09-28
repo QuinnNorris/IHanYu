@@ -127,4 +127,15 @@ public class VisitServiceImpl implements VisitService {
         baseJson.setObject(map);
         return baseJson;
     }
+
+    @Override
+    public BaseJson getUserMes(UserCustom userCustom) {
+        BaseJson baseJson = new BaseJson();
+        List<UserCustom> selectRes = userCustomMapper.selectUserByEmail(userCustom);
+        if (selectRes != null && selectRes.size() >= 1)
+            baseJson.setObject(selectRes.get(0));
+        else
+            baseJson.setObject(null);
+        return baseJson;
+    }
 }

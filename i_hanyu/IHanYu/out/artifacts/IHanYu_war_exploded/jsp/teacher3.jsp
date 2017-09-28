@@ -24,10 +24,12 @@
             <div class="login-regist-item" id="login">登录<br/>Login</div>
             <div class="login-regist-item" id="regist">注册<br/>Regist</div>
             <div class="user">
-                <%--<img class="user_head" src='<s:property value="#session.userInfo.userAvatar()"></s:property>' >
-                <div class="user_name"><s:property value="#session.userInfo.userName()"></s:property> </div>--%>
+                <img class="user_head" src='<%=session.getAttribute("headp")%>'>
+                <div class="user_name"><%=session.getAttribute("username")%></div>
             </div>
-            <%--<div class="user_item" onclick="changePerson('<s:property value="#session.userInfo.userCenter()"></s:property>')">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;个人中心</div>--%>
+            <div class="user_item"
+                 onclick="changePerson('<%=session.getAttribute("usertype")%>','<%=session.getAttribute("email")%>')">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;个人中心
+            </div>
             <div class="user_item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;首页</div>
             <div class="user_item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;教师</div>
             <div class="user_item">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;语伴</div>

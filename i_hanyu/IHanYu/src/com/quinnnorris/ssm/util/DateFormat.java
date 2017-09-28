@@ -15,9 +15,13 @@ import java.util.Date;
 public class DateFormat {
 
     private static final String normal = "yyyy-MM-dd HH:mm:ss";
+    private static final String binTime = "yyyyMMddHHmmss";
 
     public static String dataToFormat(Date date) throws ParseException {
         return new SimpleDateFormat(normal).format(date);
     }
 
+    public static String getStringBinTime() {
+        return new SimpleDateFormat(binTime).format(new Date());
+    }
 }

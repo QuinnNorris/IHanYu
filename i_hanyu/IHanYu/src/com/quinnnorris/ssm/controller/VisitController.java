@@ -1,14 +1,17 @@
 package com.quinnnorris.ssm.controller;
 
 import com.quinnnorris.ssm.bean.*;
+import com.quinnnorris.ssm.service.impl.LoginServiceImpl;
 import com.quinnnorris.ssm.service.impl.VisitServiceImpl;
 import com.quinnnorris.ssm.util.BaseJson;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,8 +30,13 @@ public class VisitController {
     @Autowired
     VisitServiceImpl visitServiceImpl;
 
+    @Autowired
+    LoginServiceImpl loginServiceImpl;
+
     @RequestMapping("/teacherVisit/{email:.+}")
-    public String teacherVisitUser(@PathVariable String email, Model model) {
+    public String teacherVisitUser(@PathVariable String email, Model model, HttpSession httpSession) {
+        if (httpSession.getAttribute("email") == null || httpSession.getAttribute("email").equals(""))
+            return "signIn";
         UserCustom userCustom = new UserCustom();
         userCustom.setEmail(email);
         BaseJson baseJson = visitServiceImpl.serachUserByEmail(userCustom);
@@ -47,6 +55,7 @@ public class VisitController {
         BaseJson baseJson1 = visitServiceImpl.getTeachersMessage(teacherCustom);
         BaseJson baseJson2 = visitServiceImpl.getTeacherGoodAt(tea_goodCustom);
         BaseJson baseJson3 = visitServiceImpl.getTeacherTime(tea_timeCustom);
+        BaseJson baseJson4 = visitServiceImpl.getUserMes(userCustom);
 
         Map<String, Object> map = new HashMap<>();
         TeacherCustom custom = (TeacherCustom) baseJson1.getObject();
@@ -61,15 +70,19 @@ public class VisitController {
         map.put("good_en", ((String[]) baseJson2.getObject())[1] + "");
         map.put("time_cn", ((String[]) baseJson3.getObject())[0] + "");
         map.put("time_en", ((String[]) baseJson3.getObject())[1] + "");
+        map.put("headp",((UserCustom)baseJson4.getObject()).getHeadp());
         model.addAllAttributes(map);
 
         return "teacherVisit";
     }
 
     @RequestMapping("/partnerVisit/{email:.+}")
-    public String partnerVisitUser(@PathVariable String email, Model model) {
+    public String partnerVisitUser(@PathVariable String email, Model model, HttpSession httpSession) {
+        if (httpSession.getAttribute("email") == null || httpSession.getAttribute("email").equals(""))
+            return "signIn";
         UserCustom userCustom = new UserCustom();
         userCustom.setEmail(email);
+        System.out.println(email);
         BaseJson baseJson = visitServiceImpl.serachUserByEmail(userCustom);
         if (baseJson.getErrorCode().equals("1001"))
             //找不到该用户，应该跳转到404页面
@@ -79,9 +92,12 @@ public class VisitController {
         partnerCustom.setId((Integer) baseJson.getObject());
 
         BaseJson baseJson1 = visitServiceImpl.getPartnersMessage(partnerCustom);
-
         Map<String, Object> map = new HashMap<>();
         PartnerCustom custom = (PartnerCustom) baseJson1.getObject();
+
+        userCustom.setId((Integer) baseJson.getObject());
+        BaseJson baseJson2 = loginServiceImpl.getUserName(userCustom);
+        BaseJson baseJson3 = visitServiceImpl.getUserMes(userCustom);
 
         map.put("university", custom.getUniversity());
         map.put("firL", custom.getFisL());
@@ -92,13 +108,17 @@ public class VisitController {
         map.put("sex_en", custom.getSex_en());
         map.put("style", custom.getSelfIntro());
         map.put("self", custom.getSelfIntro());
+        map.put("username",baseJson2.getObject());
+        map.put("headp",((UserCustom)baseJson3.getObject()).getHeadp());
         model.addAllAttributes(map);
 
         return "partnerVisit";
     }
 
     @RequestMapping("/studentVisit/{email:.+}")
-    public String studentVisitUser(@PathVariable String email, Model model) {
+    public String studentVisitUser(@PathVariable String email, Model model, HttpSession httpSession) {
+        if (httpSession.getAttribute("email") == null || httpSession.getAttribute("email").equals(""))
+            return "signIn";
         UserCustom userCustom = new UserCustom();
         userCustom.setEmail(email);
         BaseJson baseJson = visitServiceImpl.serachUserByEmail(userCustom);
@@ -113,6 +133,12 @@ public class VisitController {
         model.addAllAttributes((Map<String, Object>) baseJson1.getObject());
 
         return "studentVisit";
+    }
+
+    @RequestMapping("/homepage")
+    public String hompageReturn(Model model) {
+
+        return "homePage";
     }
 
 }
